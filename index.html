@@ -7,9 +7,50 @@
     <link rel="stylesheet" href="style.css">
     <title>Confirmator</title>
 </head>
-<body>
+<body class="bg-dark">
 
-    <h1>Confirmator</h1>
+    <div class="container">
+
+        <h1 class="text-light text-center">Confirmator</h1>
+
+        <form class="mt-5 text-light w-50 m-auto">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Student Name</label>
+                <input type="email" class="form-control rounded-pill" id="studentNameInput" aria-describedby="emailHelp">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Time</label>
+                <input type="password" class="form-control rounded-pill" id="timeZoneInput">
+            </div>
+
+            <p>Time Zone</p>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="EST" id="EST" value="EST">
+                <label class="form-check-label" for="EST">
+                  EST
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="CST" id="CST" value="CST">
+                <label class="form-check-label" for="CST">
+                  CST
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="PST" id="PST" value="PST">
+                <label class="form-check-label" for="PST">
+                  PST
+                </label>
+            </div>
+      
+                <button type="submit" class="btn btn-primary rounded-pill mt-3">Generate</button>
+        </form>
+    </div>
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
