@@ -78,8 +78,11 @@
         let con = $('#confirmation');
         sub.addClass('white');
         sub.addClass('p-4');
+        sub.addClass('shadow')
         con.addClass('white');
         con.addClass('p-4');
+        con.addClass('shadow')
+
         // Generates a clickable mail link and renders it to the page
         let mailTo = $('<a href="mailto:' + studentEmail + '?cc=centraltutorsupport@bootcampspot.com&subject=' + subject + '" target="_blank">Send Confirmation</a>');
         mailTo.addClass('bold')
@@ -149,9 +152,14 @@
             document.location.reload();
         });
 
-        // When the add tutor button is clicked
+        // When the add tutor button is clicked render the modal
         $(document).on('click', '#addTutorBtn', function() {
-            let name = prompt('Enter your first name');
+            renderModal();
+        })
+
+        // Saves the tutor first name that was entered into the modal
+        $(document).on('click', '#saveName', function() {
+            let name = $('#tutorNameInput').val();
             setTutorName(name);
             window.location.reload();
         })
@@ -170,6 +178,34 @@
             }
             return name;
         }
+
+        let renderModal = () => {
+            $('#renderModal').append(`
+
+            <!-- Modal -->
+            <div class="modal fade text-light" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog bg-grey rounded-more">
+                <div class="modal-content bg-grey">
+                <div class="modal-header bg-grey">
+                    <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body bg-grey">
+                    <label for="exampleInputEmail1">Tutor First Name</label>
+                    <input type="tutorName" class="form-control rounded-pill shadow" id="tutorNameInput" placeholder="Please enter your first name.">
+                </div>
+                <div class="modal-footer bg-grey">
+                    <button type="button" class="btn btn-secondary rounded-pill" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary rounded-pill" id="saveName">Save</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+          `)
+        }
         
         
     // When the generate button is clicked
@@ -181,3 +217,4 @@
 
     renderButtons();
     getTutorName();
+    renderModal();
