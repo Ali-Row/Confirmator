@@ -5,39 +5,48 @@
        I type in the time I see in my calendar and if I click CST it would auto deduct the time difference
     */
 
-    const generateConfirmation = () => {
+    const generateConfirmation = (name, email, timeZone) => {
 
         let studentName = $('#studentNameInput').val();
         let studentEmail = $('#studentEmailInput').val();
         let date = moment().add(1,'days').format('dddd, MMMM Do');
         let subjectDate = moment().add(1,'days').format('Do MMMM');
         let time = $('#timeInput').val();
+        let studentTimeZone;
         let EST = $('input[name="EST"]:checked').val();
         let CST = $('input[name="CST"]:checked').val();
         let PST = $('input[name="PST"]:checked').val();
-        let link = 'https://zoom.us/j/2660527403';
+        let link = 'https://zoom.us/j/12345';
 
-        // Convert 24h to 12h format, remove this line if you want to revert to 24h
+        // Convert 24h to 12h format, remove or comment out this line if you want to revert to 24h
         time = moment(time, "H:mm").format("hh:mm A");
 
-            if (EST) {
-                timeZone = EST;
+            if (!studentName) {
+                studentName = name;
             }
-            else if (CST) {
-                timeZone = CST;
+            if (!studentEmail) {
+                studentEmail = email;
             }
-            else if (PST) {
-                timeZone = PST;
+            if (!studentTimeZone) {
+                studentTimeZone = timeZone;
             }
-        
 
-            let subject = `Coding Boot Camp - Tutorial Confirmation - ${subjectDate} ${time} ${timeZone}`;
+            if (EST) {
+                studentTimeZone = EST;
+            } else if (CST) {
+                studentTimeZone = CST;
+            } else if (PST) {
+                studentTimeZone = PST;
+            }
+
+
+            let subject = `Coding Boot Camp - Tutorial Confirmation - ${subjectDate} ${time} ${studentTimeZone}`;
 
             let confirmation = `
 
             Hi ${studentName}! ${`<br><br>`}
 
-            Thank you for scheduling your session with me. I am looking forward to our session on ${date} at ${time} ${timeZone}. ${`<br><br>`} 
+            Thank you for scheduling your session with me. I am looking forward to our session on ${date} at ${time} ${studentTimeZone}. ${`<br><br>`} 
 
             If something comes up and the scheduled time will not work, ${`<strong>`} let me know a minimum of 6 hours before the appointment time ${`</strong>`} and we’ll figure something out. ${`<br><br>`}
 
@@ -80,12 +89,56 @@
         sub.html('<h2>' + subject + '</h2>' + '<br>');
         con.html('<br><br>' + confirmation + '<br>');
         con.prepend(mailTo)
+        
+        save(studentName, studentEmail, studentTimeZone);
+    }
+
+    // When called this will generate a student object
+    class Student {
+        constructor(name, email, timeZone) {
+            this.name = name;
+            this.email = email;
+            this.timeZone = timeZone;
+        }
+    }
+
+    // Saving to local storage
+    let save = (name, email, timeZone) => {
+        let student = new Student(name, email, timeZone)
+        let studentData = JSON.parse(window.localStorage.getItem('students')) || [];
+        studentData.push(student)
+        window.localStorage.setItem('students', JSON.stringify(studentData))
+    }
+
+    // Rendering buttons from local storage
+    let renderButtons = () => {
+        let students = JSON.parse(localStorage.getItem('students'));
+
+        students.forEach((person) => {
+            let btn = $('<button>').text(person.name);
+            btn.addClass('btn btn-primary rounded-pill');
+
+            let ulTag = $('<ul>');
+            let liTag = $('<li>');
+            liTag.append(btn);
+            ulTag.append(liTag);
+            // Show buttons on the page
+            $('#studentBtns').append(ulTag);
+        })
 
     }
+
+    let clickBtns = () => {
+
+    }
+
 
     // When the generate button is clicked
     $('#generate').on('click', (e) => {
         e.preventDefault();
-        generateConfirmation();
+        // generateConfirmation('billy', 'email', 'CST');
+        renderButtons();
     })
+
+    renderButtons();
 
