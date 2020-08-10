@@ -57,9 +57,15 @@
             Alistair
 
             `
+        let sub = $('#subject');
+        let con = $('#confirmation');
+        sub.addClass('white');
+        sub.addClass('p-4');
+        con.addClass('white');
+        con.addClass('p-4');
 
-        $('#subject').html(subject + '<br>');
-        $('#confirmation').html(confirmation + '<br>');
+        sub.html(subject + '<br>');
+        con.html(confirmation + '<br>');
     }
 
     $('#generate').on('click', (e) => {
