@@ -89,9 +89,11 @@
 
         sub.html('<h2>' + subject + '</h2>' + '<br>');
         con.html('<br><br>' + confirmation + '<br>');
-        con.prepend(mailTo)
-        
-        save(studentName, studentEmail, studentTimeZone, studentLink);
+        con.prepend(mailTo);
+
+        let studentObj = new Student(studentName, studentEmail, studentTimeZone, studentLink);
+
+        return studentObj;
     }
 
     // When called this constructor will generate a student object
@@ -208,10 +210,12 @@
         }
         
         
-    // When the generate button is clicked
+    // When the generate button is clicked it renders and saves to local storage
     $('#generate').on('click', (e) => {
         e.preventDefault();
         generateConfirmation();
+        let student = generateConfirmation();
+        save(student.name, student.email, student.timeZone, student.link);
         renderButtons();
     })
 
