@@ -114,9 +114,10 @@
     let renderButtons = () => {
         let students = JSON.parse(localStorage.getItem('students'));
 
-        students.forEach((person) => {
+        students.forEach((person, i) => {
             let btn = $('<button>').text(person.name);
-            btn.addClass('btn btn-primary rounded-pill');
+            btn.addClass('btn btn-primary rounded-pill person');
+            btn.attr('id', i);
 
             let ulTag = $('<ul>');
             let liTag = $('<li>');
@@ -128,15 +129,18 @@
 
     }
 
-    let clickBtns = () => {
-
-    }
-
-
+        // When each student button is clicked
+        $(document).on('click', '.person', () => {
+            let id = parseInt($(this).attr('id'));
+            let students = JSON.parse(localStorage.getItem('students'));
+            let person = students[id];
+            generateConfirmation(person.name, person.email, person.timeZone);
+        });
+        
+  
     // When the generate button is clicked
     $('#generate').on('click', (e) => {
         e.preventDefault();
-        // generateConfirmation('billy', 'email', 'CST');
         renderButtons();
     })
 
