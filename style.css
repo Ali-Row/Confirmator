@@ -8,3 +8,7 @@
 a {
     text-decoration: underline !important;
 }
+.bold {
+    text-decoration: none !important;
+    font-size: 22px;
+}

@@ -8,6 +8,7 @@
     const generateConfirmation = () => {
 
         let studentName = $('#studentNameInput').val();
+        let studentEmail = $('#studentEmailInput').val();
         let date = moment().add(1,'days').format('dddd, MMMM Do');
         let subjectDate = moment().add(1,'days').format('Do MMMM');
         let time = $('#timeInput').val();
@@ -30,7 +31,7 @@
             }
         
 
-            let subject = '<h2>' + `Coding Boot Camp - Tutorial Confirmation - ${subjectDate} ${time} ${timeZone}` + '</h2>';
+            let subject = `Coding Boot Camp - Tutorial Confirmation - ${subjectDate} ${time} ${timeZone}`;
 
             let confirmation = `
 
@@ -72,9 +73,14 @@
         sub.addClass('p-4');
         con.addClass('white');
         con.addClass('p-4');
+        // Generates the mail link and renders it to the page
+        let mailTo = $('<a href="mailto:' + studentEmail + '?cc=centraltutorsupport@bootcampspot.com&subject=' + subject + '" target="_blank">Send Confirmation</a>');
+        mailTo.addClass('bold')
 
-        sub.html(subject + '<br>');
-        con.html(confirmation + '<br>');
+        sub.html('<h2>' + subject + '</h2>' + '<br>');
+        con.html('<br><br>' + confirmation + '<br>');
+        con.prepend(mailTo)
+
     }
 
     // When the generate button is clicked
