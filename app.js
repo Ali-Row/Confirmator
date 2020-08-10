@@ -1,5 +1,11 @@
 
-    function generateConfirmation() {
+    /* New feature idea's! 
+       Use mail:to attr to auto send emails
+       Use some kind of browser timezone detection to auto adjust timezone ie. 
+       I type in the time I see in my calendar and if I click CST it would auto deduct the time difference
+    */
+
+    const generateConfirmation = () => {
 
         let studentName = $('#studentNameInput').val();
         let date = moment().add(1,'days').format('dddd, MMMM Do');
@@ -10,7 +16,8 @@
         let PST = $('input[name="PST"]:checked').val();
         let link = 'https://zoom.us/j/2660527403';
 
-        time = moment(time, "HH:mm").format("hh:mm A");
+        // Convert 24h to 12h format, remove this line if you want to revert to 24h
+        time = moment(time, "H:mm").format("hh:mm A");
 
             if (EST) {
                 timeZone = EST;
@@ -57,6 +64,8 @@
             Alistair
 
             `
+
+        // Render to the page
         let sub = $('#subject');
         let con = $('#confirmation');
         sub.addClass('white');
@@ -68,6 +77,7 @@
         con.html(confirmation + '<br>');
     }
 
+    // When the generate button is clicked
     $('#generate').on('click', (e) => {
         e.preventDefault();
         generateConfirmation();
