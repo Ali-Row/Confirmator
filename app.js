@@ -17,7 +17,7 @@
         let EST = $('input[name="EST"]:checked').val();
         let CST = $('input[name="CST"]:checked').val();
         let PST = $('input[name="PST"]:checked').val();
-        let tutorName = 'Alistair';
+        let tutorName = getTutorName();
 
         // Convert 24h to 12h format, remove or comment out this line if you want to revert to 24h
         time = moment(time, "H:mm").format("hh:mm A");
@@ -112,15 +112,20 @@
     // Rendering buttons from local storage
     function renderButtons() {
         let students = JSON.parse(window.localStorage.getItem('students'));
+        $('#studentBtns').empty();
 
         students.forEach((person, i) => {
+            let deleteBtn = $('<button><i class="fas fa-trash-alt"></i>');
             let btn = $('<button>').text(person.name);
+            deleteBtn.addClass('btn btn-danger mr-2 rounded-pill delete');
             btn.addClass('btn btn-primary rounded-pill person');
+            deleteBtn.attr('id', i);
             btn.attr('id', i);
             let ulTag = $('<ul>');
             let liTag = $('<li>');
             ulTag.addClass('no-bullet-points')
             liTag.append(btn);
+            liTag.prepend(deleteBtn);
             ulTag.append(liTag);
             // Show buttons on the page
             $('#studentBtns').append(ulTag);
@@ -134,6 +139,38 @@
             let person = students[id];
             generateConfirmation(person.name, person.email, person.timeZone, person.link);
         });
+
+         // When each delete button is clicked
+         $(document).on('click', '.delete', function() {
+            let id = parseInt($(this).attr('id'));
+            let students = JSON.parse(localStorage.getItem('students'));
+            students.splice(id, 1);
+            window.localStorage.setItem('students', JSON.stringify(students));
+            document.location.reload();
+        });
+
+        // When the add tutor button is clicked
+        $(document).on('click', '#addTutorBtn', function() {
+            let name = prompt('Enter your first name');
+            setTutorName(name);
+            window.location.reload();
+        })
+
+        // Saves tutors first name to local storage
+        setTutorName = (name) => {
+            window.localStorage.setItem('tutorName', JSON.stringify(name));
+        }
+        // Gets and renders tutors first name from local storage
+        let getTutorName = () => {
+            let name = JSON.parse(window.localStorage.getItem('tutorName'));
+            if (name) {
+                $('#addTutorBtn').text('Welcome Back ' + name);
+            } else {
+                $('#addTutorBtn').html('<i class="fas fa-user"></i> Add Name');
+            }
+            return name;
+        }
+        
         
     // When the generate button is clicked
     $('#generate').on('click', (e) => {
@@ -143,4 +180,4 @@
     })
 
     renderButtons();
-   
+    getTutorName();

@@ -1,3 +1,9 @@
+.logo {
+    padding: 30px;
+}
+.sm-font {
+    font-size: 14px;
+}
 .white {
     font-family: sans-serif !important;
     background: #ffffff !important;

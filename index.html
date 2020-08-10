@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     <title>Confirmator</title>
 </head>
@@ -13,63 +16,66 @@
 
         <div class="row">
 
-            <div class="col-md-3"></div>
+            <div class="col-lg-3">
+                <button class="btn btn-primary rounded-pill m-5 shadow sm-font" id="addTutorBtn"></button>
+                <div id="studentBtns"></div>
+            </div>
 
-            <div class="col-md-6">
+            <div class="col-lg-6">
 
-                <h1 class="text-light text-center">Confirmator</h1>
+                <h1 class="text-light text-center logo m-3">Confirmator</h1>
 
                 <form class="mt-5 text-light w-50 m-auto">
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Session Time</label>
-                        <input type="time" class="form-control rounded-pill" id="timeInput">
+                        <input type="time" class="form-control rounded-pill shadow" id="timeInput">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Student Name</label>
-                        <input type="studentName" class="form-control rounded-pill" id="studentNameInput" placeholder="John Smith">
+                        <input type="studentName" class="form-control rounded-pill shadow" id="studentNameInput" placeholder="John Smith">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Student Email</label>
-                        <input type="email" class="form-control rounded-pill" id="studentEmailInput" placeholder="student@email.com">
+                        <input type="email" class="form-control rounded-pill shadow" id="studentEmailInput" placeholder="student@email.com">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Student Link</label>
-                        <input type="email" class="form-control rounded-pill" id="studentLinkInput" placeholder="https://zoom.us/j/12345678">
+                        <input type="email" class="form-control rounded-pill shadow" id="studentLinkInput" placeholder="https://zoom.us/j/12345678">
                     </div>
 
                     <p>Time Zone</p>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="EST" id="EST" value="EST">
+                        <input class="form-check-input shadow" type="checkbox" name="EST" id="EST" value="EST">
                         <label class="form-check-label" for="EST">
                         EST
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="CST" id="CST" value="CST">
+                        <input class="form-check-input shadow" type="checkbox" name="CST" id="CST" value="CST">
                         <label class="form-check-label" for="CST">
                         CST
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="PST" id="PST" value="PST">
+                        <input class="form-check-input shadow" type="checkbox" name="PST" id="PST" value="PST">
                         <label class="form-check-label" for="PST">
                         PST
                         </label>
                     </div>
             
-                        <button type="submit" class="btn btn-primary rounded-pill mt-3" id="generate">Generate</button>
+                        <button type="submit" class="btn btn-primary rounded-pill shadow mt-3" id="generate">Generate</button>
                 </form>
  
             </div>
 
-            <div class="col-md-3 m-auto" id="studentBtns"></div>
+            <div class="col-lg-3 m-auto"></div>
 
         </div>
 
