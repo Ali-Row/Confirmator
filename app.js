@@ -5,10 +5,11 @@
        I type in the time I see in my calendar and if I click CST it would auto deduct the time difference
     */
 
-    const generateConfirmation = (name, email, timeZone) => {
+    const generateConfirmation = (name, email, timeZone, link) => {
 
         let studentName = $('#studentNameInput').val();
         let studentEmail = $('#studentEmailInput').val();
+        let studentLink = $('#studentLinkInput').val();
         let date = moment().add(1,'days').format('dddd, MMMM Do');
         let subjectDate = moment().add(1,'days').format('Do MMMM');
         let time = $('#timeInput').val();
@@ -16,19 +17,16 @@
         let EST = $('input[name="EST"]:checked').val();
         let CST = $('input[name="CST"]:checked').val();
         let PST = $('input[name="PST"]:checked').val();
-        let link = 'https://zoom.us/j/12345';
+        let tutorName = 'Alistair';
 
         // Convert 24h to 12h format, remove or comment out this line if you want to revert to 24h
         time = moment(time, "H:mm").format("hh:mm A");
 
-            if (!studentName) {
+            if (!studentName && !studentEmail && !studentTimeZone && !studentLink) {
                 studentName = name;
-            }
-            if (!studentEmail) {
                 studentEmail = email;
-            }
-            if (!studentTimeZone) {
                 studentTimeZone = timeZone;
+                studentLink = link;
             }
 
             if (EST) {
@@ -50,7 +48,7 @@
 
             If something comes up and the scheduled time will not work, ${`<strong>`} let me know a minimum of 6 hours before the appointment time ${`</strong>`} and we’ll figure something out. ${`<br><br>`}
 
-            This session will take place here: ${`<a href="${link}">${link}</a>`} ${`<br><br>`}
+            This session will take place here: ${`<a href="${studentLink}">${studentLink}</a>`} ${`<br><br>`}
 
             &nbsp;(If you have not used zoom before please join the meeting at least 15 minutes early because it may have you download and install some software.) ${`<br><br>`}
 
@@ -71,7 +69,7 @@
             ${`<strong>`} (CC Central Support on all tutor email by always using REPLY ALL). ${`</strong>`} ${`<br><br>`}
 
             Sincerely, ${'<br>'}
-            Alistair
+            ${tutorName}
 
             `
 
@@ -82,7 +80,7 @@
         sub.addClass('p-4');
         con.addClass('white');
         con.addClass('p-4');
-        // Generates the mail link and renders it to the page
+        // Generates a clickable mail link and renders it to the page
         let mailTo = $('<a href="mailto:' + studentEmail + '?cc=centraltutorsupport@bootcampspot.com&subject=' + subject + '" target="_blank">Send Confirmation</a>');
         mailTo.addClass('bold')
 
@@ -90,59 +88,59 @@
         con.html('<br><br>' + confirmation + '<br>');
         con.prepend(mailTo)
         
-        save(studentName, studentEmail, studentTimeZone);
+        save(studentName, studentEmail, studentTimeZone, studentLink);
     }
 
-    // When called this will generate a student object
+    // When called this constructor will generate a student object
     class Student {
-        constructor(name, email, timeZone) {
+        constructor(name, email, timeZone, link) {
             this.name = name;
             this.email = email;
             this.timeZone = timeZone;
+            this.link = link;
         }
     }
 
     // Saving to local storage
-    let save = (name, email, timeZone) => {
-        let student = new Student(name, email, timeZone)
+    let save = (name, email, timeZone, link) => {
+        let student = new Student(name, email, timeZone, link);
         let studentData = JSON.parse(window.localStorage.getItem('students')) || [];
-        studentData.push(student)
+        studentData.push(student);
         window.localStorage.setItem('students', JSON.stringify(studentData))
     }
 
     // Rendering buttons from local storage
-    let renderButtons = () => {
-        let students = JSON.parse(localStorage.getItem('students'));
+    function renderButtons() {
+        let students = JSON.parse(window.localStorage.getItem('students'));
 
         students.forEach((person, i) => {
             let btn = $('<button>').text(person.name);
             btn.addClass('btn btn-primary rounded-pill person');
             btn.attr('id', i);
-
             let ulTag = $('<ul>');
             let liTag = $('<li>');
+            ulTag.addClass('no-bullet-points')
             liTag.append(btn);
             ulTag.append(liTag);
             // Show buttons on the page
             $('#studentBtns').append(ulTag);
         })
-
     }
 
         // When each student button is clicked
-        $(document).on('click', '.person', () => {
+        $(document).on('click', '.person', function() {
             let id = parseInt($(this).attr('id'));
             let students = JSON.parse(localStorage.getItem('students'));
             let person = students[id];
-            generateConfirmation(person.name, person.email, person.timeZone);
+            generateConfirmation(person.name, person.email, person.timeZone, person.link);
         });
         
-  
     // When the generate button is clicked
     $('#generate').on('click', (e) => {
         e.preventDefault();
+        generateConfirmation();
         renderButtons();
     })
 
     renderButtons();
-
+   

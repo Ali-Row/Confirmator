@@ -12,3 +12,6 @@ a {
     text-decoration: none !important;
     font-size: 22px;
 }
+.no-bullet-points {
+    list-style-type: none;
+}
