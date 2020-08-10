@@ -1,0 +1,10 @@
+#subject, #confirmation {
+    font-family: sans-serif !important;
+    background: #ffffff !important;
+}
+#confirmation {
+    font-size: 13px;
+}
+a {
+    text-decoration: underline !important;
+}
