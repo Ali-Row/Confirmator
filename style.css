@@ -1,5 +1,8 @@
-form, h1, button, .modal, .font, footer {
+form, h1, .logo, button, .modal, .font, footer {
     font-family: 'Open Sans', sans-serif !important;
+}
+hr {
+    border: solid rgba(180, 180, 180, 0.568) 1px;
 }
 .logo {
     padding: 30px;
@@ -16,8 +19,11 @@ form, h1, button, .modal, .font, footer {
     background: linear-gradient(313deg, rgb(95, 95, 103) 0%, rgb(77, 77, 79) 100%) !important;
     border: none !important;
 }
-
-
+.mh {
+    max-height: 35px;
+    max-width: 65px;
+    margin-top: 32px !important;
+}
 .bl-grd-btn:hover {
     background: linear-gradient(313deg, rgb(12, 107, 167) 0%, rgb(58, 46, 165) 100%) !important;
 }
@@ -88,9 +94,13 @@ a:hover {
 .padding-more {
     padding: 66px;
 }
+.pre-footer {
+    background: rgba(57, 162, 228, 0.39);
+    margin-top: 100px !important;
+}
 footer {
-    margin-top: 140px;
     font-size: 20px;
+    background-color: rgba(7, 65, 100, 0.288);
 }
 .footer-name {
     text-decoration: none !important;

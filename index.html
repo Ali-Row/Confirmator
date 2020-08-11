@@ -14,21 +14,25 @@
 </head>
 <body class="bg-dark">
 
+    <nav class="nav justify-content-center">
+        <h2 class="nav-item text-light text-center logo"><i class="far fa-calendar-check"></i> Confirmator</h2>
+        <button class="nav-item btn btn-primary rounded-pill m-3 shadow sm-font bl-grd-btn mh" id="addTutorBtn" data-toggle="modal" data-target="#modal"><i class="fas fa-user"></i></button>
+        <button class="nav-item btn btn-primary rounded-pill m-3 shadow sm-font bl-grd-btn mh" id="helpBtn" data-toggle="modal" data-target="#modal"><i class="fas fa-question"></i></button>
+      </nav>
+
     <div class="container">
         <div id="renderModal"></div>
         <div class="row">
 
             <div class="col-xl-3 margin">
                 <div class="d-flex justify-content-around">
-                    <button class="btn btn-primary rounded-pill m-5 shadow sm-font bl-grd-btn mh" id="addTutorBtn" data-toggle="modal" data-target="#modal"><i class="fas fa-user"></i></button>
-                    <button class="btn btn-primary rounded-pill m-5 shadow sm-font bl-grd-btn mh" id="helpBtn" data-toggle="modal" data-target="#modal"><i class="fas fa-question"></i></button>
                 </div>
                 <div id="studentBtns"></div>
             </div>
 
             <div class="col-xl-6">
 
-                <h1 class="text-light text-center logo m-3 display-4"><i class="far fa-calendar-check"></i> Confirmator</h1>
+                
 
                 <form class="mt-5 text-light w-75 m-auto">
 
@@ -90,7 +94,8 @@
 
     </div>
 
-    <footer class="text-center padding-more bg-grey shadow text-light">Built with <i class="fas fa-mug-hot"></i> by <a class="footer-name" href="https://github.com/Ali-Row" target="_blank">Alistair Rowden</a></footer>
+    <div class="pre-footer padding-more"></div>
+    <footer class="text-center padding-more shadow text-light">Built with <i class="fas fa-mug-hot"></i> by <a class="footer-name" href="https://github.com/Ali-Row" target="_blank">Alistair Rowden</a></footer>
 
 
 
