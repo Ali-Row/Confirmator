@@ -118,9 +118,13 @@
         let students = JSON.parse(window.localStorage.getItem('students'));
         $('#studentBtns').empty();
         let pTag = $('<p>');
-        pTag.text('Saved Students')
-        pTag.addClass('text-light text-center font')
-        $('#studentBtns').append(pTag);
+
+        if(students != '') {
+            pTag.text('Saved Students');
+            pTag.addClass('text-light text-center font');
+            $('#studentBtns').append(pTag);
+        }
+
 
 
         students.forEach((person, i) => {
