@@ -17,6 +17,7 @@ form, h1, button, .modal, .font {
     border: none !important;
 }
 
+
 .bl-grd-btn:hover {
     background: linear-gradient(313deg, rgb(12, 107, 167) 0%, rgb(58, 46, 165) 100%) !important;
 }
@@ -27,6 +28,19 @@ form, h1, button, .modal, .font {
     background: linear-gradient(313deg, rgb(80, 80, 87) 0%, rgb(67, 67, 70) 100%) !important;
 }
 
+.person {
+    width: 70%;
+}
+.delete {
+    width: 20%;
+}
+#studentBtns {
+    max-width: 400px !important;
+    margin: 0 auto !important;
+}
+.margin {
+    margin-top: 22px !important;
+}
 
 .rounded-left {
     border-top-left-radius: 15px !important;
@@ -60,6 +74,10 @@ form, h1, button, .modal, .font {
 }
 a {
     text-decoration: underline !important;
+    color: rgb(31, 139, 255) !important;
+}
+a:hover {
+    color: rgb(26, 110, 199) !important;
 }
 .bold {
     text-decoration: none !important;

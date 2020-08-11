@@ -1,6 +1,6 @@
 
     /* New feature idea's! 
-       Use mail:to attr to auto send emails
+       Use mail:to attr to send emails
        Use some kind of browser timezone detection to auto adjust timezone ie. 
        I type in the time I see in my calendar and if I click CST it would auto deduct the time difference
     */
@@ -126,13 +126,13 @@
         students.forEach((person, i) => {
             let deleteBtn = $('<button><i class="fas fa-trash-alt"></i>');
             let btn = $('<button>').text(person.name);
-            deleteBtn.addClass('btn btn-danger mr-2 rounded-left delete rd-grd-btn');
-            btn.addClass('btn btn-primary rounded-right person bl-grd-btn');
+            deleteBtn.addClass('btn btn-danger mr-2 rounded-left delete rd-grd-btn shadow');
+            btn.addClass('btn btn-primary rounded-right person bl-grd-btn shadow');
             deleteBtn.attr('id', i);
             btn.attr('id', i);
             let ulTag = $('<ul>');
             let liTag = $('<li>');
-            ulTag.addClass('no-bullet-points')
+            ulTag.addClass('no-bullet-points mr-3');
             liTag.append(btn);
             liTag.prepend(deleteBtn);
             ulTag.append(liTag);
