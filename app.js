@@ -5,24 +5,22 @@
        I type in the time I see in my calendar and if I click CST it would auto deduct the time difference
     */
 
-    const generateConfirmation = (name, email, timeZone, link) => {
+    const generateConfirmation = (time, name, email, timeZone, link) => {
 
         let studentName = $('#studentNameInput').val();
         let studentEmail = $('#studentEmailInput').val();
         let studentLink = $('#studentLinkInput').val();
         let date = moment().add(1,'days').format('dddd, MMMM Do');
         let subjectDate = moment().add(1,'days').format('Do MMMM');
-        let time = $('#timeInput').val();
+        let sessionTime = $('#timeInput').val();
         let studentTimeZone;
         let EST = $('input[name="EST"]:checked').val();
         let CST = $('input[name="CST"]:checked').val();
         let PST = $('input[name="PST"]:checked').val();
         let tutorName = getTutorName();
 
-        // Convert 24h to 12h format, remove or comment out this line if you want to revert to 24h
-        time = moment(time, "H:mm").format("hh:mm A");
-
-            if (!studentName && !studentEmail && !studentTimeZone && !studentLink) {
+            if (!sessionTime && !studentName && !studentEmail && !studentTimeZone && !studentLink) {
+                sessionTime = time;
                 studentName = name;
                 studentEmail = email;
                 studentTimeZone = timeZone;
@@ -37,13 +35,16 @@
                 studentTimeZone = PST;
             }
 
-            let subject = `Coding Boot Camp - Tutorial Confirmation - ${subjectDate} ${time} ${studentTimeZone}`;
+            // Convert 24h to 12h format, remove or comment out this line if you want to revert to 24h
+            sessionTime = moment(sessionTime, "H:mm").format("hh:mm A");
+
+            let subject = `Coding Boot Camp - Tutorial Confirmation - ${subjectDate} ${sessionTime} ${studentTimeZone}`;
 
             let confirmation = `
 
             Hi ${studentName}! ${`<br><br>`}
 
-            Thank you for scheduling your session with me. I am looking forward to our session on ${date} at ${time} ${studentTimeZone}. ${`<br><br>`} 
+            Thank you for scheduling your session with me. I am looking forward to our session on ${date} at ${sessionTime} ${studentTimeZone}. ${`<br><br>`} 
 
             If something comes up and the scheduled time will not work, ${`<strong>`} let me know a minimum of 6 hours before the appointment time ${`</strong>`} and we’ll figure something out. ${`<br><br>`}
 
@@ -90,14 +91,15 @@
         con.prepend(hrTag);
         con.prepend(mailTo);
       
-        let studentObj = new Student(studentName, studentEmail, studentTimeZone, studentLink);
+        let studentObj = new Student(sessionTime, studentName, studentEmail, studentTimeZone, studentLink);
 
         return studentObj;
     }
 
     // When called this constructor will generate a student object
     class Student {
-        constructor(name, email, timeZone, link) {
+        constructor(time, name, email, timeZone, link) {
+            this.time = time;
             this.name = name;
             this.email = email;
             this.timeZone = timeZone;
@@ -106,8 +108,8 @@
     }
 
     // Saving to local storage
-    let save = (name, email, timeZone, link) => {
-        let student = new Student(name, email, timeZone, link);
+    let save = (time, name, email, timeZone, link) => {
+        let student = new Student(time, name, email, timeZone, link);
         let studentData = JSON.parse(window.localStorage.getItem('students')) || [];
         studentData.push(student);
         window.localStorage.setItem('students', JSON.stringify(studentData))
@@ -150,7 +152,8 @@
             let id = parseInt($(this).attr('id'));
             let students = JSON.parse(localStorage.getItem('students'));
             let person = students[id];
-            generateConfirmation(person.name, person.email, person.timeZone, person.link);
+            console.log(person.time)
+            generateConfirmation(person.time, person.name, person.email, person.timeZone, person.link);
         })
 
          // When each delete button is clicked
@@ -223,10 +226,11 @@
         e.preventDefault();
         generateConfirmation();
         let student = generateConfirmation();
-        save(student.name, student.email, student.timeZone, student.link);
+        save(student.time, student.name, student.email, student.timeZone, student.link);
         renderButtons();
     })
 
+    // By default we want to render anything from local storage that we have saved such as student names and our first name
     renderButtons();
     getTutorName();
     renderModal();
