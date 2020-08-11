@@ -37,7 +37,6 @@
                 studentTimeZone = PST;
             }
 
-
             let subject = `Coding Boot Camp - Tutorial Confirmation - ${subjectDate} ${time} ${studentTimeZone}`;
 
             let confirmation = `
@@ -59,7 +58,6 @@
                 <li>Make sure your computer/mic/internet connection are working.</li>
                 <li>Make sure your workspace is quiet and free from interruptions.</li>
                 <li>At the end of the session, I will provide you with a link to a 2 minute evaluation form that you are required to complete.</li>
-            
             </ul>`} ${`<br>`}
 
             Slack or email me with any questions.  I’m looking forward to our meeting! ${`<br><br>`}
@@ -70,7 +68,6 @@
 
             Sincerely, ${'<br>'}
             ${tutorName}
-
             `
 
         // Render to the page
@@ -78,19 +75,21 @@
         let con = $('#confirmation');
         sub.addClass('white');
         sub.addClass('p-4');
-        sub.addClass('shadow')
+        sub.addClass('shadow');
         con.addClass('white');
         con.addClass('p-4');
-        con.addClass('shadow')
+        con.addClass('shadow');
 
         // Generates a clickable mail link and renders it to the page
         let mailTo = $('<a href="mailto:' + studentEmail + '?cc=centraltutorsupport@bootcampspot.com&subject=' + subject + '" target="_blank">Send Confirmation</a>');
-        mailTo.addClass('bold')
-
+        mailTo.addClass('bold');
+        let hrTag = $('<hr>');
+        
         sub.html('<h2>' + subject + '</h2>' + '<br>');
         con.html('<br><br>' + confirmation + '<br>');
+        con.prepend(hrTag);
         con.prepend(mailTo);
-
+      
         let studentObj = new Student(studentName, studentEmail, studentTimeZone, studentLink);
 
         return studentObj;
@@ -118,12 +117,17 @@
     function renderButtons() {
         let students = JSON.parse(window.localStorage.getItem('students'));
         $('#studentBtns').empty();
+        let pTag = $('<p>');
+        pTag.text('Saved Students')
+        pTag.addClass('text-light text-center font')
+        $('#studentBtns').append(pTag);
+
 
         students.forEach((person, i) => {
             let deleteBtn = $('<button><i class="fas fa-trash-alt"></i>');
             let btn = $('<button>').text(person.name);
-            deleteBtn.addClass('btn btn-danger mr-2 rounded-pill delete');
-            btn.addClass('btn btn-primary rounded-pill person');
+            deleteBtn.addClass('btn btn-danger mr-2 rounded-left delete rd-grd-btn');
+            btn.addClass('btn btn-primary rounded-right person bl-grd-btn');
             deleteBtn.attr('id', i);
             btn.attr('id', i);
             let ulTag = $('<ul>');
@@ -143,7 +147,7 @@
             let students = JSON.parse(localStorage.getItem('students'));
             let person = students[id];
             generateConfirmation(person.name, person.email, person.timeZone, person.link);
-        });
+        })
 
          // When each delete button is clicked
          $(document).on('click', '.delete', function() {
@@ -152,7 +156,7 @@
             students.splice(id, 1);
             window.localStorage.setItem('students', JSON.stringify(students));
             document.location.reload();
-        });
+        })
 
         // When the add tutor button is clicked render the modal
         $(document).on('click', '#addTutorBtn', function() {
@@ -170,11 +174,12 @@
         setTutorName = (name) => {
             window.localStorage.setItem('tutorName', JSON.stringify(name));
         }
+
         // Gets and renders tutors first name from local storage
         let getTutorName = () => {
             let name = JSON.parse(window.localStorage.getItem('tutorName'));
             if (name) {
-                $('#addTutorBtn').text('Welcome Back ' + name);
+                $('#addTutorBtn').text('Welcome Back, ' + name);
             } else {
                 $('#addTutorBtn').html('<i class="fas fa-user"></i> Add Name');
             }
@@ -196,11 +201,11 @@
                 </div>
                 <div class="modal-body bg-grey">
                     <label for="exampleInputEmail1">Tutor First Name</label>
-                    <input type="tutorName" class="form-control rounded-pill shadow" id="tutorNameInput" placeholder="Please enter your first name.">
+                    <input type="tutorName" class="form-control rounded shadow" id="tutorNameInput" placeholder="Please enter your first name.">
                 </div>
                 <div class="modal-footer bg-grey">
-                    <button type="button" class="btn btn-secondary rounded-pill" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary rounded-pill" id="saveName">Save</button>
+                    <button type="button" class="btn btn-secondary gy-grd-btn rounded-left shadow" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bl-grd-btn rounded-right shadow" id="saveName">Save</button>
                 </div>
                 </div>
             </div>
@@ -208,7 +213,6 @@
 
           `)
         }
-        
         
     // When the generate button is clicked it renders and saves to local storage
     $('#generate').on('click', (e) => {
