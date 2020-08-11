@@ -179,9 +179,9 @@
         let getTutorName = () => {
             let name = JSON.parse(window.localStorage.getItem('tutorName'));
             if (name) {
-                $('#addTutorBtn').text('Welcome Back, ' + name);
+                $('#addTutorBtn').text(name);
             } else {
-                $('#addTutorBtn').html('<i class="fas fa-user"></i> Add Name');
+                $('#addTutorBtn').html('<i class="fas fa-user"></i>');
             }
             return name;
         }
