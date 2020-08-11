@@ -19,21 +19,18 @@
         let PST = $('input[name="PST"]:checked').val();
         let tutorName = getTutorName();
 
-            if (!sessionTime && !studentName && !studentEmail && !studentTimeZone && !studentLink) {
-                sessionTime = time;
-                studentName = name;
-                studentEmail = email;
-                studentTimeZone = timeZone;
-                studentLink = link;
-            }
-
-            if (EST) {
-                studentTimeZone = EST;
-            } else if (CST) {
-                studentTimeZone = CST;
-            } else if (PST) {
-                studentTimeZone = PST;
-            }
+            // If no data is typed into the input fields it will try to use the args we passed into the function
+            !sessionTime ? sessionTime = time : sessionTime;   
+            !studentName ? studentName = name : studentName;
+            !studentEmail ? studentEmail = email : studentEmail;
+            !studentTimeZone ? studentTimeZone = timeZone : studentTimeZone;
+            !studentLink ? studentLink = link : studentLink;
+            
+            // If a particular timezone is checked use that ones value else return null
+            EST ? studentTimeZone = EST : null;
+            CST ? studentTimeZone = CST : null;
+            PST ? studentTimeZone = PST : null;
+         
 
             // Convert 24h to 12h format, remove or comment out this line if you want to revert to 24h
             sessionTime = moment(sessionTime, "H:mm").format("hh:mm A");
@@ -198,19 +195,19 @@
 
             <!-- Modal -->
             <div class="modal fade text-light" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog bg-grey rounded-more">
-                <div class="modal-content bg-grey">
-                <div class="modal-header bg-grey">
-                    <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+            <div class="modal-dialog bg-dark rounded-more">
+                <div class="modal-content bg-dark">
+                <div class="modal-header bg-dark">
+                    <h4 class="modal-title" id="exampleModalLabel">Sign In</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body bg-grey">
+                <div class="modal-body bg-dark">
                     <label for="exampleInputEmail1">Tutor First Name</label>
                     <input type="tutorName" class="form-control rounded shadow" id="tutorNameInput" placeholder="Please enter your first name.">
                 </div>
-                <div class="modal-footer bg-grey">
+                <div class="modal-footer bg-dark">
                     <button type="button" class="btn btn-secondary gy-grd-btn rounded-left shadow" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary bl-grd-btn rounded-right shadow" id="saveName">Save</button>
                 </div>
