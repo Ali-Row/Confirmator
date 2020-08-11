@@ -1,4 +1,4 @@
-form, h1, button, .modal, .font {
+form, h1, button, .modal, .font, footer {
     font-family: 'Open Sans', sans-serif !important;
 }
 .logo {
@@ -84,4 +84,14 @@ a:hover {
 }
 .no-bullet-points {
     list-style-type: none;
+}
+.padding-more {
+    padding: 66px;
+}
+footer {
+    margin-top: 140px;
+    font-size: 20px;
+}
+.footer-name {
+    text-decoration: none !important;
 }
