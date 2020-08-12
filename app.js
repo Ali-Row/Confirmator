@@ -118,29 +118,22 @@
         $('#studentBtns').empty();
         let pTag = $('<p>');
 
-        if(students != '') {
-            pTag.text('Saved Students');
-            pTag.addClass('text-light text-center font');
-            $('#studentBtns').append(pTag);
-        }
-
-
-
+        students != '' ?  $('#studentText').text('Saved Students') : null;
+           
         students.forEach((person, i) => {
             let deleteBtn = $('<button><i class="fas fa-trash-alt"></i>');
             let btn = $('<button>').text(person.name);
-            deleteBtn.addClass('btn btn-danger mr-2 rounded-left delete rd-grd-btn shadow');
-            btn.addClass('btn btn-primary rounded-right person bl-grd-btn shadow');
+            deleteBtn.addClass('btn btn-danger rounded-0 mb-1 rounded-left delete rd-grd-btn shadow');
+            btn.addClass('btn btn-primary rounded-0 mb-1 rounded-right person bl-grd-btn shadow');
             deleteBtn.attr('id', i);
             btn.attr('id', i);
-            let ulTag = $('<ul>');
-            let liTag = $('<li>');
-            ulTag.addClass('no-bullet-points mr-3');
-            liTag.append(btn);
-            liTag.prepend(deleteBtn);
-            ulTag.append(liTag);
+            let col = $('<div class="col-md-4">');
+            col.append(deleteBtn);
+            col.append(btn);
+          
+           
             // Show buttons on the page
-            $('#studentBtns').append(ulTag);
+            $('#studentBtns').append(col);
         })
     }
 
@@ -190,22 +183,19 @@
             $('#renderModal').append(`
 
             <!-- Modal -->
-            <div class="modal fade text-light" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog bg-dark rounded-more">
-                <div class="modal-content bg-dark">
-                <div class="modal-header bg-dark">
-                    <h4 class="modal-title" id="exampleModalLabel">Sign In</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
+            <div class="bd modal fade text-light" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="bd modal-dialog bg-dark rounded-more">
+                <div class="bd modal-content bg-dark">
+                <div class="bd modal-header bg-dark">
+                    <h4 class="modal-title" id="exampleModalLabel">Sign In</h4> 
                 </div>
-                <div class="modal-body bg-dark">
+                <div class="bd modal-body bg-dark">
                     <label for="exampleInputEmail1">Tutor First Name</label>
                     <input type="tutorName" class="form-control rounded shadow" id="tutorNameInput" placeholder="Please enter your first name.">
                 </div>
-                <div class="modal-footer bg-dark">
-                    <button type="button" class="btn btn-secondary gy-grd-btn rounded-left shadow" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary bl-grd-btn rounded-right shadow" id="saveName">Save</button>
+                <div class="bd modal-footer bg-dark">
+                    <button type="button" class="btn btn-secondary gy-grd-btn rounded-0 rounded-left shadow" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bl-grd-btn rounded-0 rounded-right shadow" id="saveName">Save</button>
                 </div>
                 </div>
             </div>

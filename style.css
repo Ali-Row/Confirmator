@@ -11,6 +11,12 @@ hr {
     width: 70px;
     margin-bottom: 10px;
 }
+.p-0 {
+    padding: 0% !important;
+}
+.bd {
+    border-color: rgb(48, 49, 53) !important;
+}
 input {
     background-color: rgb(131, 130, 130) !important;
     color: white !important;
@@ -60,10 +66,6 @@ input {
 }
 .delete {
     width: 20%;
-}
-#studentBtns {
-    max-width: 400px !important;
-    margin: 0 auto !important;
 }
 .margin {
     margin-top: 22px !important;

@@ -24,19 +24,12 @@
         <button class="nav-item btn btn-primary rounded-pill m-3 shadow sm-font bl-grd-btn mh" id="helpBtn" data-toggle="modal" data-target="#modal"><i class="fas fa-question"></i></button>
       </nav>
 
-    <div class="container">
+    <div class="container-fluid">
         <div id="renderModal"></div>
+        
         <div class="row">
 
-            <div class="col-xl-3 margin">
-                <div class="d-flex justify-content-around">
-                </div>
-                <div id="studentBtns"></div>
-            </div>
-
             <div class="col-xl-6">
-
-                
 
                 <form class="mt-5 text-light w-75 m-auto">
 
@@ -88,16 +81,30 @@
  
             </div>
 
-            <div class="col-xl-3">
+            <div class="col-xl-6 mb-4">
+                <p class="text-light text-center font" id="studentText"></p>
+                <div class="row text-center m-auto" id="studentBtns"></div>
+            </div>
+            
+        </div>
+
+         
+
+    </div>
+  
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="subject" class="mt-5 rounded text-center"></div>
+                <div id="confirmation" class="mt-2 mb-5 rounded"></div>
             </div>
 
         </div>
-
-        <div id="subject" class="mt-5 rounded text-center"></div>
-        <div id="confirmation" class="mt-2 mb-5 rounded"></div>
-
     </div>
+        
 
+   
     <div class="pre-footer padding-more shadow"></div>
     <footer class="text-center padding-more shadow text-light">Built by <a class="footer-name" href="https://github.com/Ali-Row" target="_blank">Alistair Rowden</a></footer>
 
