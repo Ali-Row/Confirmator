@@ -182,11 +182,7 @@
         // Gets and renders tutors first name from local storage
         let getTutorName = () => {
             let name = JSON.parse(window.localStorage.getItem('tutorName'));
-            if (name) {
-                $('#addTutorBtn').text(name);
-            } else {
-                $('#addTutorBtn').html('<i class="fas fa-user"></i>');
-            }
+            name ? $('#addTutorBtn').text(name) : $('#addTutorBtn').html('<i class="fas fa-user"></i>');
             return name;
         }
 
