@@ -118,24 +118,12 @@ a:hover {
 .pre-footer {
     background: rgba(56,188,218, 0.39);
     margin-top: 100px !important;
-    width: 99.3%;
     margin: 0% auto;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    margin-bottom: 8px;
 }
 footer {
     font-size: 20px;
     background-color: rgba(13, 102, 117, 0.288);
-    width: 99.3%;
     margin: 0% auto;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    margin-bottom: 8px;
 }
 .footer-name {
     text-decoration: none !important;
