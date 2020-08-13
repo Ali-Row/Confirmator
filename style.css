@@ -17,6 +17,7 @@ hr {
 .bd {
     border-color: rgb(48, 49, 53) !important;
 }
+
 input {
     background-color: rgb(131, 130, 130) !important;
     color: white !important;
@@ -40,26 +41,31 @@ input {
     background: linear-gradient(313deg, rgb(33, 112, 129) 0%, rgb(56,188,218) 100%) !important;
     border: none !important;
 }
-.rd-grd-btn {
-    background: linear-gradient(313deg, rgb(221, 83, 83) 0%, rgb(198, 0, 0) 100%) !important;
+.del-grd-btn {
+    background: linear-gradient(313deg, rgb(50, 183, 212) 0%, rgb(56,188,218) 100%) !important;
     border: none !important;
 }
 .gy-grd-btn {
     background: linear-gradient(313deg, rgb(95, 95, 103) 0%, rgb(77, 77, 79) 100%) !important;
     border: none !important;
 }
+
 .bl-grd-btn:hover {
-    background: linear-gradient(313deg, rgb(35, 112, 126) 0%, rgb(43, 148, 172) 100%) !important;
+    background: linear-gradient(313deg, rgb(28, 93, 107) 0%, rgb(52, 172, 199) 100%) !important;
 }
-.rd-grd-btn:hover {
-    background: linear-gradient(313deg, rgb(187, 74, 74) 0%, rgb(160, 13, 13) 100%) !important;
+.del-grd-btn:hover {
+    background: linear-gradient(313deg, rgb(50, 171, 192) 0%, rgb(47, 160, 185) 100%) !important;
 }
 .gy-grd-btn:hover {
     background: linear-gradient(313deg, rgb(80, 80, 87) 0%, rgb(67, 67, 70) 100%) !important;
 }
+
 .mh {
     max-height: 35px;
-    margin-top: 50px !important;
+    margin-top: 51px !important;
+}
+.bl {
+    border-left: solid white 1px !important;
 }
 .person {
     width: 70%;
@@ -97,6 +103,13 @@ input {
     font-family: sans-serif !important;
     background: #ffffff !important;
 }
+.bold {
+    text-decoration: none !important;
+    font-size: 22px;
+}
+.padding-more {
+    padding: 66px;
+}
 #confirmation {
     font-size: 13px;
 }
@@ -107,26 +120,38 @@ a {
 a:hover {
     color: rgb(24, 101, 114) !important;
 }
-.bold {
-    text-decoration: none !important;
-    font-size: 22px;
-}
-.no-bullet-points {
-    list-style-type: none;
-}
-.padding-more {
-    padding: 66px;
-}
 .pre-footer {
     background: rgba(56,188,218, 0.39);
     margin-top: 100px !important;
     margin: 0% auto;
+}
+.footer-name {
+    text-decoration: none !important;
 }
 footer {
     font-size: 20px;
     background-color: rgba(13, 102, 117, 0.288);
     margin: 0% auto;
 }
-.footer-name {
-    text-decoration: none !important;
+
+
+
+@media screen and (max-width: 478px) {
+    .login {
+      margin: 0 auto !important;
+    }
+    .nav {
+        justify-content: center !important;
+    }
+}
+@media screen and (max-width: 440px) {
+    .login {
+        margin-top: -75px !important;
+        margin-bottom: 20px !important;
+    }
+}
+@media screen and (max-width: 1199px) {
+    #studentText {
+        margin-top: 40px;
+    }
 }

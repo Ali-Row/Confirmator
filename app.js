@@ -3,6 +3,7 @@
        Use mail:to attr to send emails
        Use some kind of browser timezone detection to auto adjust timezone ie. 
        I type in the time I see in my calendar and if I click CST it would auto deduct the time difference
+       Being able to update student info
     */
 
     const generateConfirmation = (time, name, email, timeZone, link) => {
@@ -109,22 +110,29 @@
         let student = new Student(time, name, email, timeZone, link);
         let studentData = JSON.parse(window.localStorage.getItem('students')) || [];
         studentData.push(student);
-        window.localStorage.setItem('students', JSON.stringify(studentData))
+        window.localStorage.setItem('students', JSON.stringify(studentData));
     }
+
+
 
     // Rendering buttons from local storage
     function renderButtons() {
         let students = JSON.parse(window.localStorage.getItem('students'));
+        // Renders the students from A - Z
+        let sortedStudents = [];
+        for(i in students) {
+            sortedStudents.push(students.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))); 
+        }
         $('#studentBtns').empty();
-        let pTag = $('<p>');
 
-        students != '' ?  $('#studentText').text('Saved Students') : null;
+        // If there are students show the Saved Students text on the page
+        students != '' ? $('#studentText').text('Saved Students') : null;
            
         students.forEach((person, i) => {
             let deleteBtn = $('<button><i class="fas fa-trash-alt"></i>');
             let btn = $('<button>').text(person.name);
-            deleteBtn.addClass('btn btn-danger rounded-0 mb-1 rounded-left delete rd-grd-btn shadow');
-            btn.addClass('btn btn-primary rounded-0 mb-1 rounded-right person bl-grd-btn shadow');
+            deleteBtn.addClass('btn btn-danger rounded-0 mb-1 rounded-left delete del-grd-btn shadow');
+            btn.addClass('btn btn-primary rounded-0 mb-1 rounded-right person bl-grd-btn bl shadow');
             deleteBtn.attr('id', i);
             btn.attr('id', i);
             let col = $('<div class="col-md-4">');
@@ -181,7 +189,6 @@
 
         let renderModal = () => {
             $('#renderModal').append(`
-
             <!-- Modal -->
             <div class="bd modal fade text-light" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="bd modal-dialog bg-dark rounded-more">
@@ -189,7 +196,7 @@
                 <div class="bd modal-header bg-dark">
                     <h4 class="modal-title" id="exampleModalLabel">Sign In</h4> 
                 </div>
-                <div class="bd modal-body bg-dark">
+                <div class="bd modal-body p-4 bg-dark">
                     <label for="exampleInputEmail1">Tutor First Name</label>
                     <input type="tutorName" class="form-control rounded shadow" id="tutorNameInput" placeholder="Please enter your first name.">
                 </div>
@@ -200,7 +207,6 @@
                 </div>
             </div>
             </div>
-
           `)
         }
         
@@ -213,7 +219,7 @@
         renderButtons();
     })
 
-    // By default we want to render anything from local storage that we have saved such as student names and our first name
+    // By default we want to render anything from local storage that we have saved such as student names and the tutors first name
     renderButtons();
     getTutorName();
     renderModal();

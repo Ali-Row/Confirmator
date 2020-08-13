@@ -16,13 +16,16 @@
 
     <title>Confirmator</title>
 </head>
+
 <body class="bg-dark">
 
-    <nav class="nav justify-content-center">
+    <nav class="nav justify-content-between bb">
         <h2 class="nav-item text-light text-center logo"><img class="trilogy-logo" src="images/trilogy_logo.png" alt="Trilogy logo"> Confirmator</h2>
-        <button class="nav-item btn btn-primary rounded-pill m-3 shadow sm-font bl-grd-btn mh" id="addTutorBtn" data-toggle="modal" data-target="#modal"><i class="fas fa-user"></i></button>
-        <button class="nav-item btn btn-primary rounded-pill m-3 shadow sm-font bl-grd-btn mh" id="helpBtn" data-toggle="modal" data-target="#modal"><i class="fas fa-question"></i></button>
-      </nav>
+        <div class="mr-4 login">
+            <button class="nav-item btn btn-primary rounded-pill m-3 shadow sm-font bl-grd-btn mh" id="addTutorBtn" data-toggle="modal" data-target="#modal"><i class="fas fa-user"></i></button>
+            <button class="nav-item btn btn-primary rounded-pill m-3 shadow sm-font bl-grd-btn mh" id="helpBtn" data-toggle="modal" data-target="#modal"><i class="fas fa-question"></i></button>
+        </div>
+    </nav>
 
     <div class="container-fluid">
         <div id="renderModal"></div>
@@ -30,26 +33,24 @@
         <div class="row">
 
             <div class="col-xl-6">
-
                 <form class="mt-5 text-light w-75 m-auto">
-
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Session Time</label>
+                        <label for="sessionTime">Session Time</label>
                         <input type="time" class="form-control rounded shadow" id="timeInput">
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Student Name</label>
+                        <label for="studentName">Student Name</label>
                         <input type="studentName" class="form-control rounded shadow" id="studentNameInput" placeholder="John Smith">
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Student Email</label>
+                        <label for="studentEmail">Student Email</label>
                         <input type="email" class="form-control rounded shadow" id="studentEmailInput" placeholder="student@email.com">
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Student Link</label>
+                        <label for="studentLink">Student Link</label>
                         <input type="email" class="form-control rounded shadow" id="studentLinkInput" placeholder="https://zoom.us/j/12345678">
                     </div>
 
@@ -75,21 +76,15 @@
                         PST
                         </label>
                     </div>
-            
-                        <button type="submit" class="btn btn-primary rounded-pill bl-grd-btn shadow mt-3" id="generate">Generate</button>
+                    <button type="submit" class="btn btn-primary rounded-pill bl-grd-btn shadow mt-3" id="generate">Generate</button>
                 </form>
- 
             </div>
 
             <div class="col-xl-6 mb-4">
                 <p class="text-light text-center font" id="studentText"></p>
                 <div class="row text-center m-auto" id="studentBtns"></div>
             </div>
-            
         </div>
-
-         
-
     </div>
   
 
@@ -105,8 +100,8 @@
         
 
    
-    <div class="pre-footer padding-more shadow"></div>
-    <footer class="text-center padding-more shadow text-light">Built by <a class="footer-name" href="https://github.com/Ali-Row" target="_blank">Alistair Rowden</a></footer>
+    <div class="pre-footer padding-more"></div>
+    <footer class="text-center padding-more text-light">Built by <a class="footer-name" href="https://github.com/Ali-Row" target="_blank">Alistair Rowden</a></footer>
 
 
 
