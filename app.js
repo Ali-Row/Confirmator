@@ -32,6 +32,7 @@
             CST ? studentTimeZone = CST : null;
             PST ? studentTimeZone = PST : null;
          
+            let studentObj = new Student(sessionTime, studentName, studentEmail, studentTimeZone, studentLink);
 
             // Convert 24h to 12h format, remove or comment out this line if you want to revert to 24h
             sessionTime = moment(sessionTime, "H:mm").format("hh:mm A");
@@ -89,8 +90,6 @@
         con.prepend(hrTag);
         con.prepend(mailTo);
       
-        let studentObj = new Student(sessionTime, studentName, studentEmail, studentTimeZone, studentLink);
-
         return studentObj;
     }
 
