@@ -32,7 +32,7 @@ input {
   :-ms-input-placeholder { /* IE 10+ */
     color: white !important;
   }
-  :-moz-placeholder { 
+  :-moz-placeholder { /* Firefox 18- */
     color: white !important;
   }
 
