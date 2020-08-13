@@ -127,23 +127,24 @@
         $('#studentBtns').empty();
 
         // If there are students show the Saved Students text on the page
-        students != '' ? $('#studentText').text('Saved Students') : null;
-           
-        students.forEach((person, i) => {
-            let deleteBtn = $('<button><i class="fas fa-trash-alt"></i>');
-            let btn = $('<button>').text(person.name);
-            deleteBtn.addClass('btn btn-danger rounded-0 mb-1 rounded-left delete del-grd-btn shadow');
-            btn.addClass('btn btn-primary rounded-0 mb-1 rounded-right person bl-grd-btn bl shadow');
-            deleteBtn.attr('id', i);
-            btn.attr('id', i);
-            let col = $('<div class="col-md-4">');
-            col.append(deleteBtn);
-            col.append(btn);
-          
-           
-            // Show buttons on the page
-            $('#studentBtns').append(col);
-        })
+        if (students) {  
+            $('#studentText').text('Saved Students');
+            students.forEach((person, i) => {
+                let deleteBtn = $('<button><i class="fas fa-trash-alt"></i>');
+                let btn = $('<button>').text(person.name);
+                deleteBtn.addClass('btn btn-danger rounded-0 mb-1 rounded-left delete del-grd-btn shadow');
+                btn.addClass('btn btn-primary rounded-0 mb-1 rounded-right person bl-grd-btn bl shadow');
+                deleteBtn.attr('id', i);
+                btn.attr('id', i);
+                let col = $('<div class="col-md-4">');
+                col.append(deleteBtn);
+                col.append(btn);
+            
+            
+                // Show buttons on the page
+                $('#studentBtns').append(col);
+            })
+        }
     }
 
         // When each student button is clicked
