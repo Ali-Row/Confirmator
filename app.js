@@ -110,6 +110,11 @@
         let student = new Student(time, name, email, timeZone, link);
         let studentData = JSON.parse(window.localStorage.getItem('students')) || [];
         studentData.push(student);
+
+         // Sorts the students from A - Z
+         for(i in studentData) {
+             studentData = (studentData.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))); 
+         }
         window.localStorage.setItem('students', JSON.stringify(studentData));
     }
 
@@ -118,11 +123,7 @@
     // Rendering buttons from local storage
     function renderButtons() {
         let students = JSON.parse(window.localStorage.getItem('students'));
-        // Renders the students from A - Z
-        // let sortedStudents = [];
-        // for(i in students) {
-        //     sortedStudents.push(students.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))); 
-        // }
+       
         $('#studentBtns').empty();
 
         // If there are students show the Saved Students text on the page
