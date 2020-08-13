@@ -136,7 +136,7 @@ footer {
 
 
 
-@media screen and (max-width: 478px) {
+@media screen and (max-width: 600px) {
     .login {
       margin: 0 auto !important;
     }
@@ -144,7 +144,7 @@ footer {
         justify-content: center !important;
     }
 }
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 446px) {
     .login {
         margin-top: -75px !important;
         margin-bottom: 20px !important;
