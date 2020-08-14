@@ -122,7 +122,7 @@
     // Rendering buttons from local storage
     function renderButtons() {
         let students = JSON.parse(window.localStorage.getItem('students'));
-       
+       // empty the div before rendering
         $('#studentBtns').empty();
 
         // If there are students show the Saved Students text on the page
