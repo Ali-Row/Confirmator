@@ -126,7 +126,7 @@
         $('#studentBtns').empty();
 
         // If there are students show the Saved Students text on the page
-        if (students) {  
+        if (students[0]) {  
             $('#studentText').text('Saved Students');
             students.forEach((person, i) => {
                 let deleteBtn = $('<button><i class="fas fa-trash-alt"></i>');
