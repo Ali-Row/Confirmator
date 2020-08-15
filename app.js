@@ -70,6 +70,42 @@
             ${tutorName}
             `
 
+
+
+            let body = `
+
+            Hi ${studentName}! 
+
+            Thank you for scheduling your session with me. I am looking forward to our session on ${date} at ${sessionTime} ${studentTimeZone}.  
+
+            If something comes up and the scheduled time will not work, let me know a minimum of 6 hours before the appointment time and we’ll figure something out. 
+
+            This session will take place here: ${studentLink}
+
+             (If you have not used zoom before please join the meeting at least 15 minutes early because it may have you download and install some software.) 
+
+            Again, all I need from you:
+                • Be on Tutors & Students Slack 5 minutes before your time slot.
+                • Make sure your computer/mic/internet connection are working.
+                • Make sure your workspace is quiet and free from interruptions.
+                • At the end of the session, I will provide you with a link to a 2 minute evaluation form that you are required to complete.
+
+            Slack or email me with any questions.  I’m looking forward to our meeting! 
+
+             Please Reply All to this email so that I know you have seen it. 
+
+             (CC Central Support on all tutor email by always using REPLY ALL). 
+
+            Sincerely,
+            ${tutorName}
+            `
+
+
+            
+
+    
+            
+
         // Render to the page
         let sub = $('#subject');
         let con = $('#confirmation');
@@ -80,8 +116,8 @@
         con.addClass('p-4');
         con.addClass('shadow');
 
-        // Generates a clickable mail link and renders it to the page
-        let mailTo = $('<a href="mailto:' + studentEmail + '?cc=centraltutorsupport@bootcampspot.com&subject=' + subject + '" target="_blank">Send Confirmation</a>');
+        // Generates a clickable mail link and renders it to the page, when clicked this link will auto fill the email
+        let mailTo = $('<a href="mailto:' + studentEmail + '?cc=centraltutorsupport@bootcampspot.com&subject=' + subject + '&body=' + encodeURIComponent(body) + '" target="_blank">Send Confirmation</a>');
         mailTo.addClass('bold');
         let hrTag = $('<hr>');
         
