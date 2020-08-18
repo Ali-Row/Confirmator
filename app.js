@@ -1,11 +1,3 @@
-
-    /* New feature idea's! 
-       Use mail:to attr to send emails
-       Use some kind of browser timezone detection to auto adjust timezone ie. 
-       I type in the time I see in my calendar and if I click CST it would auto deduct the time difference
-       Being able to update student info
-    */
-
     const generateConfirmation = (time, name, email, timeZone, link) => {
 
         let studentName = $('#studentNameInput').val();
@@ -117,8 +109,6 @@
         window.localStorage.setItem('students', JSON.stringify(studentData));
     }
 
-
-
     // Rendering buttons from local storage
     function renderButtons() {
         let students = JSON.parse(window.localStorage.getItem('students'));
@@ -155,8 +145,8 @@
             generateConfirmation(person.time, person.name, person.email, person.timeZone, person.link);
         })
 
-         // When each delete button is clicked
-         $(document).on('click', '.delete', function() {
+        // When each delete button is clicked
+        $(document).on('click', '.delete', function() {
             let id = parseInt($(this).attr('id'));
             let students = JSON.parse(localStorage.getItem('students'));
             students.splice(id, 1);
