@@ -1,3 +1,8 @@
+
+    /* New feature idea's! 
+       Being able to update student info
+    */
+
     const generateConfirmation = (time, name, email, timeZone, link) => {
 
         let studentName = $('#studentNameInput').val();
@@ -72,7 +77,7 @@
         con.addClass('p-4');
         con.addClass('shadow');
 
-        // Generates a clickable mail link and renders it to the page
+        // Generates a clickable mail link and renders it to the page, when clicked this link will auto fill the email
         let mailTo = $('<a href="mailto:' + studentEmail + '?cc=centraltutorsupport@bootcampspot.com&subject=' + subject + '" target="_blank">Send Confirmation</a>');
         mailTo.addClass('bold');
         let hrTag = $('<hr>');
@@ -200,7 +205,7 @@
             </div>
           `)
         }
-        
+
     // When the generate button is clicked it renders and saves to local storage
     $('#generate').on('click', (e) => {
         e.preventDefault();
