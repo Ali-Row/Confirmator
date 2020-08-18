@@ -1,8 +1,3 @@
-
-    /* New feature idea's! 
-       Being able to update student info
-    */
-
     const generateConfirmation = (time, name, email, timeZone, link) => {
 
         let studentName = $('#studentNameInput').val();
@@ -15,6 +10,14 @@
         let EST = $('input[name="EST"]:checked').val();
         let CST = $('input[name="CST"]:checked').val();
         let PST = $('input[name="PST"]:checked').val();
+        let GMT = $('input[name="GMT"]:checked').val();
+        let ACDT = $('input[name="ACDT"]:checked').val();
+        let AEST = $('input[name="AEST"]:checked').val();
+        let AEDT = $('input[name="AEDT"]:checked').val();
+        let AWST = $('input[name="AWST"]:checked').val();
+        let Mountain = $('input[name="Mountain"]:checked').val();
+
+
         let tutorName = getTutorName();
 
             // If no data is typed into the input fields it will try to use the args we passed into the function
@@ -28,6 +31,12 @@
             EST ? studentTimeZone = EST : null;
             CST ? studentTimeZone = CST : null;
             PST ? studentTimeZone = PST : null;
+            GMT ? studentTimeZone = GMT : null;
+            ACDT ? studentTimeZone = ACDT : null;
+            AEST ? studentTimeZone = AEST : null;
+            AEDT ? studentTimeZone = AEDT : null;
+            AWST ? studentTimeZone = AWST : null;
+            Mountain ? studentTimeZone = Mountain : null;
          
             let studentObj = new Student(sessionTime, studentName, studentEmail, studentTimeZone, studentLink);
 
