@@ -17,7 +17,6 @@
         let AWST = $('input[name="AWST"]:checked').val();
         let Mountain = $('input[name="Mountain"]:checked').val();
 
-
         let tutorName = getTutorName();
 
             // If no data is typed into the input fields it will try to use the args we passed into the function
@@ -88,13 +87,17 @@
 
         // Generates a clickable mail link and renders it to the page, when clicked this link will auto fill the email
         let mailTo = $('<a href="mailto:' + studentEmail + '?cc=centraltutorsupport@bootcampspot.com&subject=' + subject + '" target="_blank">Send Confirmation</a>');
-        mailTo.addClass('bold');
+        let copyBtn = $('<button>');
+        copyBtn.addClass('btn btn-primary copy-btn rounded-pill bl-grd-btn ml-4 shadow');
+        copyBtn.text('Copy To Clipboard')
+        mailTo.addClass('btn btn-primary copy-btn rounded-pill bl-grd-btn text-white font shadow');
         let hrTag = $('<hr>');
         
-        sub.html('<h2>' + subject + '</h2>' + '<br>');
+        sub.html('<h2 class="text-center">' + subject + '</h2>' + '<br>');
         con.html('<br><br>' + confirmation + '<br>');
-        con.prepend(hrTag);
-        con.prepend(mailTo);
+        sub.append(hrTag);
+        sub.append(mailTo);
+        sub.append(copyBtn)
       
         return studentObj;
     }
@@ -120,6 +123,7 @@
          for(i in studentData) {
              studentData = (studentData.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))); 
          }
+         // Saving sorted students
         window.localStorage.setItem('students', JSON.stringify(studentData));
     }
 
@@ -142,7 +146,6 @@
                 let col = $('<div class="col-md-4">');
                 col.append(deleteBtn);
                 col.append(btn);
-            
             
                 // Show buttons on the page
                 $('#studentBtns').append(col);
@@ -214,6 +217,35 @@
             </div>
           `)
         }
+
+        // Copies to clipboard and retains the styling so the email body looks correct
+        const copyWithStyle = (element) => {
+            const doc = document;
+            const text = doc.getElementById(element);
+            let range;
+            let selection;
+        
+            if (doc.body.createTextRange) {
+                range = doc.body.createTextRange();
+                range.moveToElement(text);
+                range.select();
+            } else if (window.getSelection) {
+                selection = window.getSelection();
+                range = doc.createRange();
+                range.selectNodeContents(text);
+                selection.removeAllRanges();
+                selection.addRange(range);
+            }
+            doc.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            // document.getElementById( 'copyToClip' ).value = 'Copied to clipboard!';
+        }
+
+        // When the copy to clipboard button is clicked it copies the email body to the clipboard
+        $(document).on('click', '.copy-btn', function() {
+            copyWithStyle('confirmation');
+        });
+
 
     // When the generate button is clicked it renders and saves to local storage
     $('#generate').on('click', (e) => {

@@ -17,13 +17,19 @@ hr {
 .bd {
     border-color: rgb(48, 49, 53) !important;
 }
-       
+      
 input {
     background-color: rgb(131, 130, 130) !important;
     color: white !important;
     border: rgb(131, 130, 130) !important;
 }
-
+.text-white {
+    text-decoration: none !important;
+    color: white !important;
+}
+.text-white:hover {
+    color: white !important;
+}
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: white !important;
   }
