@@ -138,7 +138,14 @@
             $('#studentText').text('Saved Students');
             students.forEach((person, i) => {
                 let deleteBtn = $('<button><i class="fas fa-trash-alt"></i>');
-                let btn = $('<button>').text(person.name);
+                let btn;
+
+                if (person.name.length >= 17) {  
+                    btn = $('<button>').text(person.name.substring(0, 15) + '...');
+                } else {
+                    btn = $('<button>').text(person.name);
+                }
+
                 deleteBtn.addClass('btn btn-danger rounded-0 mb-1 rounded-left delete del-grd-btn shadow');
                 btn.addClass('btn btn-primary rounded-0 mb-1 rounded-right person bl-grd-btn bl shadow');
                 deleteBtn.attr('id', i);
