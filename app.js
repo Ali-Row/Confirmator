@@ -128,7 +128,7 @@
     }
 
     // Rendering buttons from local storage
-    function renderButtons() {
+    let renderButtons = () => {
         let students = JSON.parse(window.localStorage.getItem('students'));
        // empty the div before rendering
         $('#studentBtns').empty();
@@ -140,7 +140,7 @@
                 let deleteBtn = $('<button><i class="fas fa-trash-alt"></i>');
                 let btn;
 
-                if (person.name.length >= 17) {  
+                if (person.name != null && person.name.length >= 17) {  
                     btn = $('<button>').text(person.name.substring(0, 15) + '...');
                 } else {
                     btn = $('<button>').text(person.name);
