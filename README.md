@@ -1,4 +1,5 @@
-# Confirmator
-A faster way to fill out confirmations to send to coding boot camp students.
+# Welcome to Confirmator
 
-**LIVE DEMO: https://ali-row.github.io/Confirmator/**
+Confirmator is a faster way to send out the next day confirmation emails for Trilogy Education Tutors.
+
+
