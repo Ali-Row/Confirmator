@@ -34,7 +34,7 @@ The next thing we can do is click on the 'Copy To Clipboard' button and then cli
 
 Once on the email page you'll notice that the students email has been auto filled, additionally you'll notice that central support has been added as a CC recipient and that the subject line has been auto filled also.
 
-Inside the body you can hit 'CMD + V' on macOS or 'CTRL + V' on Windows to paste in the body of the email we copied earlier, if you'd prefer you can also right click and hit paste, then hit send.
+Inside the body you can hit 'CMD + V' on macOS or 'CTRL + V' on Windows to paste the body of the email we copied earlier, if you'd prefer you can also right click and hit paste, then hit send.
 
 ![Paste email](images/paste-email.png)
 
