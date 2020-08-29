@@ -8,7 +8,7 @@ Link: https://ali-row.github.io/Confirmator/
 
 Once you open up the app you will be presented with a clean and modern user interface.
 
-![User interface](ui.png)
+![User interface](images/ui.png)
 
 
 
