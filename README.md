@@ -38,7 +38,7 @@ Inside the body you can hit 'CMD + V' on macOS or 'CTRL + V' on Windows to paste
 
 ![Paste email](images/paste-email.png)
 
-If you got this far then you are good to go ahead and add as many students as you have on your roster, once added you can click them at anytime and send the confirmation email with ease.
+If you got this far then you are good to go ahead and add as many students as you have on your roster, once added you can click them at any time and send the confirmation email with ease.
 
 ![Multiple Students](images/multiple-students.png)
 
@@ -46,7 +46,7 @@ Now what if a student changes their usual time or they book by themselves each w
 
 ![Session time](images/change-time.png)
 
-If we want to delete a student we can simply click on the trash icon next the to the students name like so.
+If we want to delete a student we can simply click on the trash icon next to the students name like so.
 
 ![Delete Student](images/delete-student.png)
 
