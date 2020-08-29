@@ -24,6 +24,9 @@ Once we click generate you'll notice 2 things will happen, first it renders a pr
 
 ![Generate confirmation](images/generate.png)
 
+![Generate confirmation](images/generate-2.png)
+
+
 
 
 
