@@ -18,5 +18,12 @@ A modal will open up, we fill out our first name then click save, you'll notice 
 
 ![Tutor sign in modal](images/sign-in-modal.png)
 
+Now we can fill out the fields with all of the necessary information, first the time of the session, then AM or PM, then the students name, email, the zoom link for that particular student and last but not least the students timezone.
+
+Once we click generate you'll notice 2 things will happen, first it renders a preview of the email subject line and body below and secondly it will save the student on the right.
+
+![Generate confirmation](images/generate.png)
+
+
 
 
