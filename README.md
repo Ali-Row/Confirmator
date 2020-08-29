@@ -56,7 +56,7 @@ Please feel free to contribute to the project on Github if you have any ideas or
 
 Thanks.
 
-- Alistair Rowden, Senior Full Stack Tutor
+Alistair Rowden, Senior Full Stack Tutor
 
 
 
