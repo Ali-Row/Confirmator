@@ -44,6 +44,7 @@
 
             let subject = `Coding Boot Camp - Tutorial Confirmation - ${subjectDate} ${sessionTime} ${studentTimeZone}`;
 
+            // Email body template generation
             let confirmation = `
 
             Hi ${studentName}! ${`<br><br>`}
@@ -76,14 +77,14 @@
             `
 
         // Render to the page
-        let sub = $('#subject');
-        let con = $('#confirmation');
-        sub.addClass('white');
-        sub.addClass('p-4');
-        sub.addClass('shadow');
-        con.addClass('white');
-        con.addClass('p-4');
-        con.addClass('shadow');
+        let emailSubject = $('#subject');
+        let emailConfirmation = $('#confirmation');
+        emailSubject.addClass('white');
+        emailSubject.addClass('p-4');
+        emailSubject.addClass('shadow');
+        emailConfirmation.addClass('white');
+        emailConfirmation.addClass('p-4');
+        emailConfirmation.addClass('shadow');
 
         // Generates a clickable mail link and renders it to the page, when clicked this link will auto fill the email
         let mailTo = $('<a href="mailto:' + studentEmail + '?cc=centraltutorsupport@bootcampspot.com&subject=' + subject + '" target="_blank">Send Confirmation</a>');
@@ -93,11 +94,11 @@
         mailTo.addClass('btn btn-primary copy-btn rounded-pill bl-grd-btn text-white font shadow');
         let hrTag = $('<hr>');
         
-        sub.html('<h2 class="text-center">' + subject + '</h2>' + '<br>');
-        con.html('<br><br>' + confirmation + '<br>');
-        sub.append(hrTag);
-        sub.append(mailTo);
-        sub.append(copyBtn)
+        emailSubject.html('<h2 class="text-center">' + subject + '</h2>' + '<br>');
+        emailConfirmation.html('<br><br>' + confirmation + '<br>');
+        emailSubject.append(hrTag);
+        emailSubject.append(mailTo);
+        emailSubject.append(copyBtn)
       
         return studentObj;
     }
@@ -133,14 +134,16 @@
        // empty the div before rendering
         $('#studentBtns').empty();
 
+        const studentsExist = students[0];
         // If there are students show the Saved Students text on the page
-        if (students[0]) {  
+        if (studentsExist) {  
             $('#studentText').text('Saved Students');
             students.forEach((person, i) => {
                 let deleteBtn = $('<button><i class="fas fa-trash-alt"></i>');
                 let btn;
-
-                if (person.name != null && person.name.length >= 17) {  
+                let displayShortenedName = person.name != null && person.name.length >= 17;
+                // If the student name is too large we shorten the name and have ... appear at the end
+                if (displayShortenedName) {  
                     btn = $('<button>').text(person.name.substring(0, 15) + '...');
                 } else {
                     btn = $('<button>').text(person.name);
@@ -196,13 +199,14 @@
         }
 
         // Gets and renders tutors first name from local storage
-        let getTutorName = () => {
+        const getTutorName = () => {
             let name = JSON.parse(window.localStorage.getItem('tutorName'));
+            // If the tutors name is true return the name else show the default user icon
             name ? $('#addTutorBtn').text(name) : $('#addTutorBtn').html('<i class="fas fa-user"></i>');
             return name;
         }
 
-        let renderModal = () => {
+        const renderModal = () => {
             $('#renderModal').append(`
             <!-- Modal -->
             <div class="bd modal fade text-light" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

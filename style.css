@@ -16,8 +16,7 @@ hr {
 }
 .bd {
     border-color: rgb(48, 49, 53) !important;
-}
-      
+}   
 input {
     background-color: rgb(131, 130, 130) !important;
     color: white !important;
@@ -125,6 +124,9 @@ a {
 }
 a:hover {
     color: rgb(24, 101, 114) !important;
+}
+.help-btn, .help-btn:hover {
+    color: rgb(255, 255, 255) !important;
 }
 .pre-footer {
     background: rgba(56,188,218, 0.39);
