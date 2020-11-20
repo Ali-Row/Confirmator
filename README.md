@@ -55,7 +55,7 @@ And there you have it, I hope this app helps all the tutors out and makes life a
 Please feel free to contribute to the project on Github if you have any ideas or improvements, that would be awesome!
 
 Thanks.
-
+ 
 Alistair Rowden, Senior Full Stack Tutor
 
 
