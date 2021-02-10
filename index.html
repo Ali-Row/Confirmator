@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
      <!-- Font Awesome -->
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+     <!-- Animate CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
      <!-- Google Fonts -->
      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
      <!-- CSS -->
@@ -18,7 +20,7 @@
 </head>
 
 <body class="bg-dark">
-
+    
     <nav class="nav justify-content-between bb">
         <h2 class="nav-item text-light text-center logo"><img class="trilogy-logo" src="images/trilogy_logo.png" alt="Trilogy logo"> Confirmator</h2>
         <div class="mr-4 login">
@@ -28,6 +30,7 @@
     </nav>
 
     <div class="container-fluid">
+
         <div id="renderModal"></div>
         
         <div class="row">
@@ -140,8 +143,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+
+                <div class="d-flex justify-content-end">
+                    <div class="alert alert-info invisible animate__animated" role="alert">
+                       Copied to clipboard!
+                    </div>
+                </div>
+
                 <div id="subject" class="mt-5 rounded"></div>
+
                 <div id="confirmation" class="mt-2 mb-5 rounded"></div>
+                
             </div>
 
         </div>

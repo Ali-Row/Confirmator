@@ -17,7 +17,7 @@ hr {
 .bd {
     border-color: rgb(48, 49, 53) !important;
 }   
-input {
+input, .alert {
     background-color: rgb(131, 130, 130) !important;
     color: white !important;
     border: rgb(131, 130, 130) !important;
@@ -64,7 +64,6 @@ input {
 .gy-grd-btn:hover {
     background: linear-gradient(313deg, rgb(80, 80, 87) 0%, rgb(67, 67, 70) 100%) !important;
 }
-
 .mh {
     max-height: 35px;
     margin-top: 51px !important;
@@ -141,8 +140,6 @@ footer {
     background-color: rgba(13, 102, 117, 0.288);
     margin: 0% auto;
 }
-
-
 
 @media screen and (max-width: 600px) {
     .login {

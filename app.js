@@ -19,14 +19,12 @@
 
         let tutorName = getTutorName();
 
-            // If no data is typed into the input fields it will try to use the args we passed into the function
             !sessionTime ? sessionTime = time : sessionTime;   
             !studentName ? studentName = name : studentName;
             !studentEmail ? studentEmail = email : studentEmail;
             !studentTimeZone ? studentTimeZone = timeZone : studentTimeZone;
             !studentLink ? studentLink = link : studentLink;
             
-            // If a particular timezone is checked use that ones value else return null
             EST ? studentTimeZone = EST : null;
             CST ? studentTimeZone = CST : null;
             PST ? studentTimeZone = PST : null;
@@ -44,7 +42,6 @@
 
             let subject = `Coding Boot Camp - Tutorial Confirmation - ${subjectDate} ${sessionTime} ${studentTimeZone}`;
 
-            // Email body template generation
             let confirmation = `
 
             Hi ${studentName}! ${`<br><br>`}
@@ -76,7 +73,6 @@
             ${tutorName}
             `
 
-        // Render to the page
         let emailSubject = $('#subject');
         let emailConfirmation = $('#confirmation');
         emailSubject.addClass('white');
@@ -86,7 +82,6 @@
         emailConfirmation.addClass('p-4');
         emailConfirmation.addClass('shadow');
 
-        // Generates a clickable mail link and renders it to the page, when clicked this link will auto fill the email
         let mailTo = $('<a href="mailto:' + studentEmail + '?cc=centraltutorsupport@bootcampspot.com&subject=' + subject + '" target="_blank">Send Confirmation</a>');
         let copyBtn = $('<button>');
         copyBtn.addClass('btn btn-primary copy-btn rounded-pill bl-grd-btn ml-4 shadow');
@@ -103,7 +98,6 @@
         return studentObj;
     }
 
-    // When called this constructor will generate a student object
     class Student {
         constructor(time, name, email, timeZone, link) {
             this.time = time;
@@ -114,7 +108,6 @@
         }
     }
 
-    // Saving to local storage
     let save = (time, name, email, timeZone, link) => {
         let student = new Student(time, name, email, timeZone, link);
         let studentData = JSON.parse(window.localStorage.getItem('students')) || [];
@@ -124,18 +117,15 @@
          for(i in studentData) {
              studentData = (studentData.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))); 
          }
-         // Saving sorted students
         window.localStorage.setItem('students', JSON.stringify(studentData));
     }
 
-    // Rendering buttons from local storage
     let renderButtons = () => {
         let students = JSON.parse(window.localStorage.getItem('students'));
-       // empty the div before rendering
         $('#studentBtns').empty();
 
         const studentsExist = students[0];
-        // If there are students show the Saved Students text on the page
+
         if (studentsExist) {  
             $('#studentText').text('Saved Students');
             students.forEach((person, i) => {
@@ -157,13 +147,11 @@
                 col.append(deleteBtn);
                 col.append(btn);
             
-                // Show buttons on the page
                 $('#studentBtns').append(col);
             })
         }
     }
 
-        // When each student button is clicked
         $(document).on('click', '.person', function() {
             let id = parseInt($(this).attr('id'));
             let students = JSON.parse(localStorage.getItem('students'));
@@ -172,7 +160,6 @@
             generateConfirmation(person.time, person.name, person.email, person.timeZone, person.link);
         })
 
-        // When each delete button is clicked
         $(document).on('click', '.delete', function() {
             let id = parseInt($(this).attr('id'));
             let students = JSON.parse(localStorage.getItem('students'));
@@ -181,27 +168,22 @@
             document.location.reload();
         })
 
-        // When the add tutor button is clicked render the modal
         $(document).on('click', '#addTutorBtn', function() {
             renderModal();
         })
 
-        // Saves the tutor first name that was entered into the modal
         $(document).on('click', '#saveName', function() {
             let name = $('#tutorNameInput').val();
             setTutorName(name);
             window.location.reload();
         })
 
-        // Saves tutors first name to local storage
         setTutorName = (name) => {
             window.localStorage.setItem('tutorName', JSON.stringify(name));
         }
 
-        // Gets and renders tutors first name from local storage
         const getTutorName = () => {
             let name = JSON.parse(window.localStorage.getItem('tutorName'));
-            // If the tutors name is true return the name else show the default user icon
             name ? $('#addTutorBtn').text(name) : $('#addTutorBtn').html('<i class="fas fa-user"></i>');
             return name;
         }
@@ -229,7 +211,6 @@
           `)
         }
 
-        // Copies to clipboard and retains the styling so the email body looks correct
         const copyWithStyle = (element) => {
             const doc = document;
             const text = doc.getElementById(element);
@@ -249,16 +230,28 @@
             }
             doc.execCommand('copy');
             window.getSelection().removeAllRanges();
-            // document.getElementById( 'copyToClip' ).value = 'Copied to clipboard!';
+            renderAlert()
         }
 
-        // When the copy to clipboard button is clicked it copies the email body to the clipboard
+        const renderAlert = () => {
+            let alert = $(".alert");
+            alert.removeClass("invisible");
+            alert.addClass("animate__fadeInRight")
+            setTimeout(() => {
+                alert.addClass("animate__fadeOut")
+            }, 2000);
+            setTimeout(() => {
+                alert.addClass("invisible");
+                alert.removeClass("animate__fadeOut")
+                alert.removeClass("animate__fadeInRight")
+            }, 3000);
+        }
+
         $(document).on('click', '.copy-btn', function() {
             copyWithStyle('confirmation');
         });
 
 
-    // When the generate button is clicked it renders and saves to local storage
     $('#generate').on('click', (e) => {
         e.preventDefault();
         generateConfirmation();
@@ -267,7 +260,6 @@
         renderButtons();
     })
 
-    // By default we want to render anything from local storage that we have saved such as student names and the tutors first name
     renderButtons();
     getTutorName();
     renderModal();
