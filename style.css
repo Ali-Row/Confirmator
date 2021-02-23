@@ -17,10 +17,16 @@ hr {
 .bd {
     border-color: rgb(48, 49, 53) !important;
 }   
-input, .alert {
+input, .alert, .greyBtnBlock {
     background-color: rgb(131, 130, 130) !important;
     color: white !important;
     border: rgb(131, 130, 130) !important;
+}
+.greyBtnBlock {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding: 1.1rem;
+    margin: .5rem;
 }
 .text-white {
     text-decoration: none !important;

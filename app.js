@@ -127,7 +127,6 @@
         const studentsExist = students[0];
 
         if (studentsExist) {  
-            $('#studentText').text('Saved Students');
             students.forEach((person, i) => {
                 let deleteBtn = $('<button><i class="fas fa-trash-alt"></i>');
                 let btn;
@@ -149,6 +148,15 @@
             
                 $('#studentBtns').append(col);
             })
+        } else {
+            for (let i = 0; i < 6; i++) {
+                let greyBtnBlock = $('<div>');
+                greyBtnBlock.addClass('greyBtnBlock rounded-pill shadow');
+                let col = $('<div class="col-md-4">');
+                col.append(greyBtnBlock);
+            
+                $('#studentBtns').append(col);
+            }
         }
     }
 
