@@ -129,15 +129,7 @@
         if (studentsExist) {  
             students.forEach((person, i) => {
                 let deleteBtn = $('<button><i class="fas fa-trash-alt"></i>');
-                let btn;
-                let displayShortenedName = person.name != null && person.name.length >= 17;
-                // If the student name is too large we shorten the name and have ... appear at the end
-                if (displayShortenedName) {  
-                    btn = $('<button>').text(person.name.substring(0, 15) + '...');
-                } else {
-                    btn = $('<button>').text(person.name);
-                }
-
+                let btn = $('<button>').text(person.name);
                 deleteBtn.addClass('btn btn-danger rounded-0 mb-1 rounded-left delete del-grd-btn shadow');
                 btn.addClass('btn btn-primary rounded-0 mb-1 rounded-right person bl-grd-btn bl shadow');
                 deleteBtn.attr('id', i);

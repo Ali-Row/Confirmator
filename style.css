@@ -79,6 +79,9 @@ input, .alert, .greyBtnBlock {
 }
 .person {
     width: 70%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .delete {
     width: 20%;
