@@ -4,6 +4,9 @@ form, h1, button, footer, .logo, .modal, .font {
 hr {
     border: solid rgba(180, 180, 180, 0.568) 1px;
 }
+input:focus {
+    outline: solid rgb(52, 172, 199) .2rem !important;
+}
 .logo {
     padding: 30px;
 }
