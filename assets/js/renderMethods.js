@@ -21,16 +21,17 @@ const renderButtons = () => {
     if (studentsExist) {  
         students.forEach((person, i) => {
             let sessionTime = moment(person.time, "H:mm").format("hh:mm A");
-            let studentSessionTime = `${sessionTime} ${person.timeZone}`;
             let studentTitle;
-            person.name ? studentTitle = `${person.name.split(' ')[0]}'s Session Time` : studentTitle = '';
+            let studentSessionTime;
+            person.name ? studentTitle = `${person.name.split(' ')[0]}'s Session Time` : studentTitle = '🚫 &nbsp; No student name saved';
+            sessionTime === 'Invalid date' ? studentSessionTime = '⚠️ No session time saved' : studentSessionTime = `⏰ &nbsp; ${sessionTime} ${person.timeZone}`;
             
             let deleteBtn = $('<button><i class="fas fa-times"></i>');
-            let editBtn = $('<button><i class="fas fa-pen"></i>')
+            let editBtn = $('<button><i class="fas fa-pen"></i>');
             let studentBtn = $(`<button tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" title="${studentTitle}" data-bs-content="${studentSessionTime}">`).text(person.name);
             
             deleteBtn.addClass('btn btn-danger rounded-0 mb-1 rounded-left delete del-grd-btn shadow');
-            editBtn.addClass('btn btn-primary rounded-0 mb-1 edit del-grd-btn bl shadow')
+            editBtn.addClass('btn btn-primary rounded-0 mb-1 edit del-grd-btn bl shadow');
             studentBtn.addClass('btn btn-primary rounded-0 mb-1 rounded-right person bl-grd-btn bl shadow');
             
             deleteBtn.attr('id', i);
