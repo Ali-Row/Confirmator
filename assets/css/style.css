@@ -38,16 +38,10 @@ input, .alert, .greyBtnBlock {
 .text-white:hover {
     color: white !important;
 }
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: white !important;
-  }
-  ::-moz-placeholder { /* Firefox 19+ */
-    color: white !important;
-  }
-  :-ms-input-placeholder { /* IE 10+ */
-    color: white !important;
-  }
-  :-moz-placeholder { /* Firefox 18- */
+#timeInput::-webkit-input-placeholder,
+#studentNameInput::-webkit-input-placeholder,
+#studentEmailInput::-webkit-input-placeholder, 
+#studentLinkInput::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: white !important;
   }
 
