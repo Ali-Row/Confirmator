@@ -11,8 +11,12 @@ input:focus {
     padding: 30px;
 }
 .trilogy-logo {
-    width: 70px;
-    margin-bottom: 10px;
+    width: 3rem;
+    margin-bottom: .5rem;
+}
+.trilogy-logo-small {
+    width: 2.1rem;
+    margin-bottom: .5rem;
 }
 .p-0 {
     padding: 0% !important;
@@ -141,8 +145,44 @@ a:hover {
     margin-top: 100px !important;
     margin: 0% auto;
 }
+.pre-footer-line {
+    background: rgb(255, 255, 255);
+    padding: .01rem;
+}
 .footer-name {
     text-decoration: none !important;
+}
+.i-footer {
+    font-size: 2.2rem;
+    padding: .5rem;
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
+    margin-top: .5rem;
+    transition: all ease-in-out .12s;
+}
+.fa-html5:hover {
+    transform: scale(1.1);
+    color: rgb(228,77,38);
+}
+.fa-css3:hover {
+    transform: scale(1.1);
+    color: rgb(37,75,221);
+}
+.fa-js-square:hover {
+    transform: scale(1.1);
+    color: rgb(209, 185, 28);
+}
+.fa-bootstrap:hover {
+    transform: scale(1.1);
+    color: rgb(143, 66, 231);
+}
+.fa-font-awesome:hover {
+    transform: scale(1.1);
+    color: rgb(51,155,240);
+}
+.fa-stack-overflow:hover {
+    transform: scale(1.1);
+    color: rgb(244,128,36);
 }
 footer {
     font-size: 20px;

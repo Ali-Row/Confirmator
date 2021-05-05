@@ -22,8 +22,9 @@ const renderButtons = () => {
         students.forEach((person, i) => {
             let sessionTime = moment(person.time, "H:mm").format("hh:mm A");
             let studentSessionTime = `${sessionTime} ${person.timeZone}`;
-            let studentTitle = `${person.name.split(' ')[0]}'s Session Time`
-
+            let studentTitle;
+            person.name ? studentTitle = `${person.name.split(' ')[0]}'s Session Time` : studentTitle = '';
+            
             let deleteBtn = $('<button><i class="fas fa-times"></i>');
             let editBtn = $('<button><i class="fas fa-pen"></i>')
             let studentBtn = $(`<button tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" title="${studentTitle}" data-bs-content="${studentSessionTime}">`).text(person.name);
