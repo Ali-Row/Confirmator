@@ -26,10 +26,8 @@ input, .alert, .greyBtnBlock {
     border: rgb(131, 130, 130) !important;
 }
 .greyBtnBlock {
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding: 1.1rem;
-    margin: .5rem;
+    padding: 1.18rem;
+    margin: .16rem;
 }
 .text-white {
     text-decoration: none !important;

@@ -40,9 +40,9 @@ const renderButtons = () => {
             $('#studentBtns').append(col);
         })
     } else {
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 12; i++) {
             let greyBtnBlock = $('<div>');
-            greyBtnBlock.addClass('greyBtnBlock rounded-pill shadow');
+            greyBtnBlock.addClass('greyBtnBlock rounded-pill shadow animate__animated animate__jackInTheBox animate__delay-1s animate__faster');
             let col = $('<div class="col-md-4">');
             col.append(greyBtnBlock);
         
