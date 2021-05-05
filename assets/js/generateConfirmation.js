@@ -75,25 +75,20 @@ const generateConfirmation = (time, name, email, timeZone, link) => {
 
     let emailSubject = $('#subject');
     let emailConfirmation = $('#confirmation');
-    emailSubject.addClass('white');
-    emailSubject.addClass('p-4');
-    emailSubject.addClass('shadow');
-    emailConfirmation.addClass('white');
-    emailConfirmation.addClass('p-4');
-    emailConfirmation.addClass('shadow');
+    emailSubject.addClass('white p-4 shadow');
+    emailConfirmation.addClass('white p-4 shadow');
 
-    let mailTo = $('<a href="mailto:' + studentEmail + '?cc=centraltutorsupport@bootcampspot.com&subject=' + subject + '" target="_blank">Send Confirmation</a>');
-    let copyBtn = $('<button>');
-    copyBtn.addClass('btn btn-primary copy-btn rounded-pill bl-grd-btn mx-4 shadow');
-    copyBtn.text('Copy To Clipboard')
-    mailTo.addClass('btn btn-primary copy-btn rounded-pill bl-grd-btn text-white font shadow');
     let hrTag = $('<hr>');
+    let sendConfirmationBtn = $('<a href="mailto:' + studentEmail + '?cc=centraltutorsupport@bootcampspot.com&subject=' + subject + '" target="_blank">Send Confirmation</a>');
+    let copyToClipboardBtn = $('<button>');
+
+    copyToClipboardBtn.addClass('btn btn-primary rounded-pill bl-grd-btn mx-4 shadow copy-to-clipboard-btn');
+    copyToClipboardBtn.text('Copy To Clipboard')
+    sendConfirmationBtn.addClass('btn btn-primary rounded-pill bl-grd-btn text-white font shadow');
     
     emailSubject.html('<h2 class="text-center">' + subject + '</h2>' + '<br>');
     emailConfirmation.html('<br><br>' + confirmation + '<br>');
-    emailSubject.append(hrTag);
-    emailSubject.append(mailTo);
-    emailSubject.append(copyBtn)
+    emailSubject.append(hrTag, sendConfirmationBtn, copyToClipboardBtn);
   
     return studentObj;
 }

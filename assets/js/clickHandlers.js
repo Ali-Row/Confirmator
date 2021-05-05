@@ -16,7 +16,7 @@ $('#generate').on('click', (e) => {
     renderButtons();
 })
     
-$(document).on('click', '.copy-btn', function() {
+$(document).on('click', '.copy-to-clipboard-btn', function() {
     copyWithStyle('confirmation');
 });
 
