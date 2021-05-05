@@ -40,3 +40,9 @@ $(document).on('click', '.person', function() {
     generateConfirmation(person.time, person.name, person.email, person.timeZone, person.link);
 })
 
+$(document).on('mouseover', '.person', function() {
+    let id = $(this).attr('id');
+    let students = JSON.parse(localStorage.getItem('students'));
+    let person = students[id];
+})
+

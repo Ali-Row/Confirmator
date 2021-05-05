@@ -26,8 +26,7 @@ input, .alert, .greyBtnBlock {
     border: rgb(131, 130, 130) !important;
 }
 .greyBtnBlock {
-    padding: 1.18rem;
-    margin: .16rem;
+   cursor: inherit;
 }
 .text-white {
     text-decoration: none !important;
@@ -72,13 +71,19 @@ input, .alert, .greyBtnBlock {
 .bl {
     border-left: solid white 1px !important;
 }
-.person {
+.bl-grey {
+    border-left: solid rgb(167, 167, 167) 1px !important;
+}
+.grey-icon {
+    color: rgb(167, 167, 167) !important;
+}
+.person, .grey-person {
     width: 70%;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
-.delete {
+.delete, .grey-delete {
     width: 20%;
 }
 .margin {

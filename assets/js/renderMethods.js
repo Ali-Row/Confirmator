@@ -22,29 +22,37 @@ const renderButtons = () => {
         students.forEach((person, i) => {
             let deleteBtn = $('<button><i class="fas fa-times"></i>');
             let editBtn = $('<button><i class="fas fa-pen"></i>')
-            let btn = $('<button>').text(person.name);
+            let studentBtn = $('<button>').text(person.name);
             
             deleteBtn.addClass('btn btn-danger rounded-0 mb-1 rounded-left delete del-grd-btn shadow');
             editBtn.addClass('btn btn-primary rounded-0 mb-1 edit del-grd-btn bl shadow')
-            btn.addClass('btn btn-primary rounded-0 mb-1 rounded-right person bl-grd-btn bl shadow');
+            studentBtn.addClass('btn btn-primary rounded-0 mb-1 rounded-right person bl-grd-btn bl shadow');
+            
             deleteBtn.attr('id', i);
             editBtn.attr('id', i);
             editBtn.attr('data-bs-toggle', 'modal');
             editBtn.attr('data-bs-target', '#editModal');
-            btn.attr('id', i);
+            studentBtn.attr('id', i);
             let col = $('<div class="col-md-4 d-flex">');
-            col.append(deleteBtn);
-            col.append(editBtn)
-            col.append(btn);
+            col.append(deleteBtn, editBtn, studentBtn);
         
             $('#studentBtns').append(col);
         })
     } else {
+
         for (let i = 0; i < 12; i++) {
-            let greyBtnBlock = $('<div>');
-            greyBtnBlock.addClass('greyBtnBlock rounded-pill shadow animate__animated animate__jackInTheBox animate__delay-1s animate__faster');
-            let col = $('<div class="col-md-4">');
-            col.append(greyBtnBlock);
+            // let greyBtnBlock = $('<div>');
+            // greyBtnBlock.addClass('greyBtnBlock rounded-pill shadow animate__animated animate__jackInTheBox animate__delay-1s animate__faster');
+
+            let deleteBtn = $('<div><i class="fas fa-times grey-icon"></i>');
+            let editBtn = $('<div><i class="fas fa-pen grey-icon"></i>')
+            let studentBtn = $('<div>');
+            
+            deleteBtn.addClass('btn btn-secondary rounded-0 mb-1 grey-delete rounded-left greyBtnBlock shadow');
+            editBtn.addClass('btn btn-primary rounded-0 mb-1 greyBtnBlock bl-grey shadow')
+            studentBtn.addClass('btn btn-primary rounded-0 mb-1 grey-person rounded-right greyBtnBlock bl-grey shadow');
+            let col = $('<div class="col-md-4 d-flex animate__animated animate__jackInTheBox animate__delay-1s animate__faster">');
+            col.append(deleteBtn, editBtn, studentBtn);
         
             $('#studentBtns').append(col);
         }
