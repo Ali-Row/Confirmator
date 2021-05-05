@@ -20,9 +20,13 @@ const renderButtons = () => {
 
     if (studentsExist) {  
         students.forEach((person, i) => {
+            let sessionTime = moment(person.time, "H:mm").format("hh:mm A");
+            let studentSessionTime = `${sessionTime} ${person.timeZone}`;
+            let studentTitle = `${person.name.split(' ')[0]}'s Session Time`
+
             let deleteBtn = $('<button><i class="fas fa-times"></i>');
             let editBtn = $('<button><i class="fas fa-pen"></i>')
-            let studentBtn = $('<button>').text(person.name);
+            let studentBtn = $(`<button tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" title="${studentTitle}" data-bs-content="${studentSessionTime}">`).text(person.name);
             
             deleteBtn.addClass('btn btn-danger rounded-0 mb-1 rounded-left delete del-grd-btn shadow');
             editBtn.addClass('btn btn-primary rounded-0 mb-1 edit del-grd-btn bl shadow')
@@ -41,9 +45,7 @@ const renderButtons = () => {
     } else {
 
         for (let i = 0; i < 12; i++) {
-            // let greyBtnBlock = $('<div>');
-            // greyBtnBlock.addClass('greyBtnBlock rounded-pill shadow animate__animated animate__jackInTheBox animate__delay-1s animate__faster');
-
+            
             let deleteBtn = $('<div><i class="fas fa-times grey-icon"></i>');
             let editBtn = $('<div><i class="fas fa-pen grey-icon"></i>')
             let studentBtn = $('<div>');
