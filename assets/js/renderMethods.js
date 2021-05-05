@@ -23,8 +23,10 @@ const renderButtons = () => {
             let sessionTime = moment(person.time, "H:mm").format("hh:mm A");
             let studentTitle;
             let studentSessionTime;
+            let timeZone;
+            person.timeZone ? timeZone = person.timeZone : timeZone = 'No time zone saved';
             person.name ? studentTitle = `${person.name.split(' ')[0]}'s Session Time` : studentTitle = '🚫 &nbsp; No student name saved';
-            sessionTime === 'Invalid date' ? studentSessionTime = '⚠️ No session time saved' : studentSessionTime = `⏰ &nbsp; ${sessionTime} ${person.timeZone}`;
+            sessionTime === 'Invalid date' ? studentSessionTime = '⚠️ No session time saved' : studentSessionTime = `⏰ &nbsp; ${sessionTime} ${timeZone}`;
             
             let deleteBtn = $('<button><i class="fas fa-times"></i>');
             let editBtn = $('<button><i class="fas fa-pen"></i>');
