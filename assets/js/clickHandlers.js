@@ -1,5 +1,4 @@
-$(document).on('click', '#addTutorBtn', function(e) {
-    e.stopPropagation()
+$(document).on('click', '#addTutorBtn', function() {
     renderModal();
 })
 
