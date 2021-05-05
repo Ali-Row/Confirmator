@@ -87,18 +87,18 @@ input, .alert, .greyBtnBlock {
     margin-top: 22px !important;
 }
 .rounded-left {
-    border-top-left-radius: 15px !important;
-    border-bottom-left-radius: 15px !important;
+    border-top-left-radius: 33px !important;
+    border-bottom-left-radius: 33px !important;
 }
 .rounded-right {
-    border-top-right-radius: 15px !important;
-    border-bottom-right-radius: 15px !important;
+    border-top-right-radius: 33px !important;
+    border-bottom-right-radius: 33px !important;
 }
 .rounded-pill {
-    border-top-right-radius: 15px !important;
-    border-bottom-right-radius: 15px !important;
-    border-top-left-radius: 15px !important;
-    border-bottom-left-radius: 15px !important;
+    border-top-right-radius: 33px !important;
+    border-bottom-right-radius: 33px !important;
+    border-top-left-radius: 33px !important;
+    border-bottom-left-radius: 33px !important;
 }
 .sm-font {
     font-size: 14px;
