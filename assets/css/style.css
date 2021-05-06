@@ -152,11 +152,20 @@ a:hover {
 .footer-name {
     text-decoration: none !important;
 }
+.footer-icon-wrapper {
+    margin-top: 1rem !important;
+    margin: 0% auto;
+    background: rgba(13, 38, 58, 0.164);
+    border-radius: .8rem;
+    transition: all ease-in .18s;
+}
+.footer-icon-wrapper:hover {
+    background: rgb(27, 50, 66);
+}
 .i-footer {
     font-size: 2.2rem;
     padding-left: .8rem;
     padding-right: .8rem;
-    margin-top: .5rem;
     transition: all ease-in-out .12s;
 }
 .fa-html5:hover {
@@ -189,9 +198,22 @@ footer {
     margin: 0% auto;
 }
 
+@media screen and (max-width: 1330px) {
+    .footer-icon-wrapper {
+        width: 40% !important;
+    }
+}
 @media screen and (max-width: 1199px) {
     #studentText {
         margin-top: 40px;
+    }
+    .footer-icon-wrapper {
+        width: 50% !important;
+    }
+}
+@media screen and (max-width: 800px) {
+    .footer-icon-wrapper {
+        width: 65% !important;
     }
 }
 @media screen and (max-width: 600px) {
@@ -200,6 +222,12 @@ footer {
     }
     .nav {
         justify-content: center !important;
+    }
+    .footer-icon-wrapper {
+        width: 100% !important;
+    }
+    footer {
+        padding: 1.8rem !important;
     }
 }
 @media screen and (max-width: 446px) {
@@ -212,10 +240,21 @@ footer {
         flex-direction: column;
         align-items: center;
     }
-    .copy-btn {
+    .copy-to-clipboard-btn, .send-confirmation-btn {
        margin: 0rem auto !important;
        margin-top: .5rem !important;
        width: 100% !important;
     }
+    footer {
+        padding: 1.2rem !important;
+    }
 
+}
+@media screen and (max-width: 298px) {
+    .footer-icon-wrapper {
+        display: none;
+    }
+    footer {
+        padding: 1.8rem !important;
+    }
 }

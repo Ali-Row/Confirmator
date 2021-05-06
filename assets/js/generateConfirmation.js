@@ -84,7 +84,7 @@ const generateConfirmation = (time, name, email, timeZone, link) => {
 
     copyToClipboardBtn.addClass('btn btn-primary rounded-pill bl-grd-btn mx-4 shadow copy-to-clipboard-btn');
     copyToClipboardBtn.text('Copy To Clipboard')
-    sendConfirmationBtn.addClass('btn btn-primary rounded-pill bl-grd-btn text-white font shadow');
+    sendConfirmationBtn.addClass('btn btn-primary rounded-pill bl-grd-btn text-white font shadow send-confirmation-btn');
     
     emailSubject.html('<h2 class="text-center">' + subject + '</h2>' + '<br>');
     emailConfirmation.html('<br><br>' + confirmation + '<br>');

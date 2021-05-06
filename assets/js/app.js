@@ -49,7 +49,7 @@ const copyWithStyle = (element) => {
     }
     doc.execCommand('copy');
     window.getSelection().removeAllRanges();
-    renderAlert()
+    renderAlert();
 }
 
 renderButtons();
