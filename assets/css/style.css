@@ -154,9 +154,8 @@ a:hover {
 }
 .i-footer {
     font-size: 2.2rem;
-    padding: .5rem;
-    padding-left: 1.45rem;
-    padding-right: 1.45rem;
+    padding-left: .8rem;
+    padding-right: .8rem;
     margin-top: .5rem;
     transition: all ease-in-out .12s;
 }
