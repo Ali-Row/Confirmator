@@ -18,6 +18,12 @@ input:focus {
     width: 2.1rem;
     margin-bottom: .5rem;
 }
+.edit-info-img { 
+    max-width: 12%;
+}
+.sign-in-modal-img {
+    max-width: 10%;
+}
 .p-0 {
     padding: 0% !important;
 }
@@ -139,6 +145,7 @@ a:hover {
 }
 .help-btn, .help-btn:hover {
     color: rgb(255, 255, 255) !important;
+    text-decoration: none !important;
 }
 .pre-footer {
     background: rgba(56,188,218, 0.39);

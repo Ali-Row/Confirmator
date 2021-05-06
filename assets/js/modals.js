@@ -7,8 +7,9 @@ const renderEditModal = (id) => {
     <div class="bd modal fade text-light" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
     <div class="bd modal-dialog bg-dark rounded-more">
         <div class="bd modal-content bg-dark">
-        <div class="bd modal-header bg-dark">
-            <h4 class="modal-title">Edit Student Info</h4> 
+        <div class="bd modal-header bg-dark d-flex justify-content-start">
+        <img class="edit-info-img" src="https://img.icons8.com/color/344/user-folder.png" alt="User Folder icon">
+            <h4 class="mx-2 modal-title">Edit Student Info</h4> 
         </div>
         <div class="bd modal-body p-4 bg-dark">
         <div class="form-floating mb-2">
@@ -74,8 +75,9 @@ const renderModal = () => {
     <div class="bd modal fade text-light" id="tutorSignInModal" tabindex="-1" aria-labelledby="tutorSignInModal" aria-hidden="true">
     <div class="bd modal-dialog bg-dark rounded-more">
         <div class="bd modal-content bg-dark">
-        <div class="bd modal-header bg-dark">
-            <h4 class="modal-title">Sign In</h4> 
+        <div class="bd modal-header bg-dark d-flex justify-content-start">
+            <img class="sign-in-modal-img" src="https://img.icons8.com/fluent/344/user-male-circle.png" alt="User icon">
+            <h4 class="mx-2 modal-title">Sign In</h4> 
         </div>
         <div class="bd modal-body p-4 bg-dark">
             <div class="form-floating mb-1">
