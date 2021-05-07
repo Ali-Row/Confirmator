@@ -58,8 +58,7 @@ const renderEditModal = (id) => {
       person.timeZone = newTimeZone;
 
       localStorage.setItem('students', JSON.stringify(students)); 
-      renderButtons();
-      generateConfirmation(person.time, person.name, person.email, person.timeZone, person.link);
+      window.location.reload();
   })
 
   $('#newTime').val('');
