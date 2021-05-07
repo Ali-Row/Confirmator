@@ -1,11 +1,11 @@
 const generateConfirmation = (time, name, email, timeZone, link) => {
 
-    let studentName = $('#studentNameInput').val();
-    let studentEmail = $('#studentEmailInput').val();
-    let studentLink = $('#studentLinkInput').val();
+    let studentName = $('#studentNameInput').val().trim();
+    let studentEmail = $('#studentEmailInput').val().trim();
+    let studentLink = $('#studentLinkInput').val().trim();
     let date = moment().add(1,'days').format('dddd, MMMM Do');
     let subjectDate = moment().add(1,'days').format('Do MMMM');
-    let sessionTime = $('#timeInput').val();
+    let sessionTime = $('#timeInput').val().trim();
     let studentTimeZone;
     let EST = $('input[name="EST"]:checked').val();
     let CST = $('input[name="CST"]:checked').val();
