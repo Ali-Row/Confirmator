@@ -29,7 +29,13 @@ input:focus {
 }
 .bd {
     border-color: rgb(48, 49, 53) !important;
-}   
+} 
+.generate-form-container {
+    margin-top: .29rem;
+}  
+.saved-students {
+    margin: .4rem;
+}
 input, .alert, .greyBtnBlock {
     background-color: rgb(131, 130, 130) !important;
     color: white !important;

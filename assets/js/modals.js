@@ -1,7 +1,5 @@
 const renderEditModal = (id) => {
-    if (!id) {
-        return
-    } 
+    if (!id) return;
 
     $('#renderModal').append(`
     <div class="bd modal fade text-light" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
@@ -44,30 +42,29 @@ const renderEditModal = (id) => {
   let students = JSON.parse(localStorage.getItem('students'));
   let person = students[id];
 
-  $('#saveNewInfo').on('click', function() {
-      let newTime = $('#newTime').val();
-      let newName = $('#newName').val();
-      let newEmail = $('#newEmail').val();
-      let newLink = $('#newLink').val();
-      let newTimeZone = $('#newTimeZone').val();
+    $('#saveNewInfo').on('click', function() {
+        let newTime = $('#newTime').val();
+        let newName = $('#newName').val().trim();
+        let newEmail = $('#newEmail').val().trim();
+        let newLink = $('#newLink').val().trim();
+        let newTimeZone = $('#newTimeZone').val().trim();
 
-      person.time = newTime;
-      person.name = newName;
-      person.email = newEmail;
-      person.link = newLink;
-      person.timeZone = newTimeZone;
+        person.time = newTime;
+        person.name = newName;
+        person.email = newEmail;
+        person.link = newLink;
+        person.timeZone = newTimeZone;
 
-      localStorage.setItem('students', JSON.stringify(students)); 
-      window.location.reload();
-  })
+        localStorage.setItem('students', JSON.stringify(students)); 
+        window.location.reload();
+    })
 
-  $('#newTime').val('');
-  $('#newName').val(person.name);  
-  $('#newEmail').val(person.email);  
-  $('#newLink').val(person.link);
-  $('#newTimeZone').val(person.timeZone);  
+    $('#newTime').val('');
+    $('#newName').val(person.name);  
+    $('#newEmail').val(person.email);  
+    $('#newLink').val(person.link);
+    $('#newTimeZone').val(person.timeZone);  
 }
-
 
 const renderModal = () => {
     $('#renderModal').append(`
