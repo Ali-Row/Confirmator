@@ -52,15 +52,15 @@ const renderStudentButtons = (students) => {
 const renderPlaceholderButtons = () => {
     for (let i = 0; i < 12; i++) {
             
-        let deleteBtn = $('<div><i class="fas fa-times grey-icon"></i>');
-        let editBtn = $('<div><i class="fas fa-pen grey-icon"></i>')
-        let studentBtn = $('<div>');
+        let greyDeleteBtn = $('<div><i class="fas fa-times grey-icon"></i>');
+        let greyEditBtn = $('<div><i class="fas fa-pen grey-icon"></i>')
+        let greyStudentBtn = $('<div>');
         
-        deleteBtn.addClass('btn btn-secondary rounded-0 mb-1 grey-delete rounded-left greyBtnBlock shadow');
-        editBtn.addClass('btn btn-primary rounded-0 mb-1 greyBtnBlock bl-grey shadow')
-        studentBtn.addClass('btn btn-primary rounded-0 mb-1 grey-person rounded-right greyBtnBlock bl-grey shadow');
+        greyDeleteBtn.addClass('btn btn-secondary rounded-0 mb-1 grey-delete rounded-left greyBtnBlock shadow');
+        greyEditBtn.addClass('btn btn-primary rounded-0 mb-1 greyBtnBlock bl-grey shadow')
+        greyStudentBtn.addClass('btn btn-primary rounded-0 mb-1 grey-person rounded-right greyBtnBlock bl-grey shadow');
         let col = $('<div class="col-md-4 d-flex animate__animated animate__jackInTheBox animate__delay-1s animate__faster">');
-        col.append(deleteBtn, editBtn, studentBtn);
+        col.append(greyDeleteBtn, greyEditBtn, greyStudentBtn);
     
         $('#studentBtns').append(col);
     }
