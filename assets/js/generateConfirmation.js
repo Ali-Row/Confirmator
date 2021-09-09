@@ -11,6 +11,7 @@ const generateConfirmation = (time, name, email, timeZone, link) => {
     let CST = $('input[name="CST"]:checked').val();
     let PST = $('input[name="PST"]:checked').val();
     let GMT = $('input[name="GMT"]:checked').val();
+    let CEST = $('input[name="CEST"]:checked').val();
     let ACDT = $('input[name="ACDT"]:checked').val();
     let AEST = $('input[name="AEST"]:checked').val();
     let AEDT = $('input[name="AEDT"]:checked').val();
@@ -29,6 +30,7 @@ const generateConfirmation = (time, name, email, timeZone, link) => {
         CST ? studentTimeZone = CST : null;
         PST ? studentTimeZone = PST : null;
         GMT ? studentTimeZone = GMT : null;
+        CEST ? studentTimeZone = CEST : null;
         ACDT ? studentTimeZone = ACDT : null;
         AEST ? studentTimeZone = AEST : null;
         AEDT ? studentTimeZone = AEDT : null;
