@@ -23,18 +23,19 @@ const generateConfirmation = (time, name, email, timeZone, link) => {
 
     let rosterArr = copyFromRoster.split("\t");
 
-       if (rosterArr.length > 1) {
-        studentName = rosterArr[2]
-        studentEmail = rosterArr[3];
-        studentTimeZone = rosterArr[5];
-       }
+        if (rosterArr.length > 1) {
+            studentName = rosterArr[2]
+            studentEmail = rosterArr[3];
+            studentTimeZone = rosterArr[5];
+            studentLink = rosterArr[6];
+        }
 
         !sessionTime ? sessionTime = time : sessionTime;   
         !studentName ? studentName = name : studentName;
         !studentEmail ? studentEmail = email : studentEmail;
         !studentTimeZone ? studentTimeZone = timeZone : studentTimeZone;
         !studentLink ? studentLink = link : studentLink;
-
+        
         
         EST ? studentTimeZone = EST : null;
         CST ? studentTimeZone = CST : null;
