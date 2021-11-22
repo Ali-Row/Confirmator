@@ -3,6 +3,7 @@ const generateConfirmation = (time, name, email, timeZone, link) => {
     let studentName = $('#studentNameInput').val().trim();
     let studentEmail = $('#studentEmailInput').val().trim();
     let studentLink = $('#studentLinkInput').val().trim();
+    let copyFromRoster = $('#copyFromRosterInput').val().trim();
     let date = moment().add(1,'days').format('dddd, MMMM Do');
     let subjectDate = moment().add(1,'days').format('Do MMMM');
     let sessionTime = $('#timeInput').val().trim();
@@ -20,11 +21,20 @@ const generateConfirmation = (time, name, email, timeZone, link) => {
 
     let tutorName = getTutorName();
 
+    let rosterArr = copyFromRoster.split("\t");
+
+       if (rosterArr.length > 1) {
+        studentName = rosterArr[2]
+        studentEmail = rosterArr[3];
+        studentTimeZone = rosterArr[5];
+       }
+
         !sessionTime ? sessionTime = time : sessionTime;   
         !studentName ? studentName = name : studentName;
         !studentEmail ? studentEmail = email : studentEmail;
         !studentTimeZone ? studentTimeZone = timeZone : studentTimeZone;
         !studentLink ? studentLink = link : studentLink;
+
         
         EST ? studentTimeZone = EST : null;
         CST ? studentTimeZone = CST : null;

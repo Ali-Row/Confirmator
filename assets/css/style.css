@@ -54,7 +54,8 @@ input, .alert, .greyBtnBlock {
 #timeInput::-webkit-input-placeholder,
 #studentNameInput::-webkit-input-placeholder,
 #studentEmailInput::-webkit-input-placeholder, 
-#studentLinkInput::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+#studentLinkInput::-webkit-input-placeholder,
+#copyFromRosterInput::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: white !important;
   }
 
