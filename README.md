@@ -50,6 +50,21 @@ If we want to delete a student we can simply click on the trash icon next to the
 
 ![Delete Student](assets/images/delete-student.png)
 
+## Using the new "Copy From Roster" feature
+
+This feature was added to streamline adding students into confirmator from your roster, it is simple and easy to do, firstly go to your roster and find the student you want to add to confirmator.
+
+![Add Student To Confirmator](assets/images/copy-from-roster.png)
+
+Highlight the entire line and copy it like so.
+
+![Add Student To Confirmator](assets/images/copy-from-roster-2.png)
+
+Lastly paste the entire student info into the "Copy From Roster" input field and hit generate, if you need to add the session time in the future feel free to hit the edit button for that particular student and add in their session time, have fun!
+
+![Add Student To Confirmator](assets/images/copy-from-roster-3.png)
+
+
 And there you have it, I hope this app helps all the tutors out and makes life a little easier, you all do such great work!
 
 Please feel free to contribute to the project on Github if you have any ideas or improvements, that would be awesome!
