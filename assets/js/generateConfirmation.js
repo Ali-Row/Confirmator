@@ -102,6 +102,6 @@ const generateConfirmation = (time, name, email, timeZone, link) => {
     emailSubject.html('<h2 class="text-center">' + subject + '</h2>' + '<br>');
     emailConfirmation.html('<br><br>' + confirmation + '<br>');
     emailSubject.append(hrTag, sendConfirmationBtn, copyToClipboardBtn);
-  
+
     return studentObj;
 }
