@@ -21,6 +21,13 @@ const save = (time, name, email, gradDate, timeZone, link) => {
     window.localStorage.setItem('students', JSON.stringify(studentData));
 }
 
+const deleteStudent = (id) => {
+    let students = JSON.parse(localStorage.getItem('students'));
+    students.splice(id, 1);
+    window.localStorage.setItem('students', JSON.stringify(students));
+    renderButtons();
+}
+
 const getAutoDeleteStudent = () => {
     let isAutoDelete = localStorage.getItem('auto-delete');
     let checkbox = $('#autoDeleteStudentCheckbox');

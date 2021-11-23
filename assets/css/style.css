@@ -18,6 +18,9 @@ input:focus {
     width: 2.1rem;
     margin-bottom: .5rem;
 }
+.auto-delete-students:checked {
+    background-color: rgb(56,188,218) !important;
+}
 .edit-info-img { 
     max-width: 12%;
 }
@@ -57,8 +60,7 @@ input, .alert, .greyBtnBlock {
 #studentLinkInput::-webkit-input-placeholder,
 #copyFromRosterInput::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: white !important;
-  }
-
+}
 .bl-grd-btn {
     background: linear-gradient(313deg, rgb(33, 112, 129) 0%, rgb(56,188,218) 100%) !important;
     border: none !important;
@@ -79,7 +81,6 @@ input, .alert, .greyBtnBlock {
     background: linear-gradient(313deg, rgb(95, 95, 103) 0%, rgb(77, 77, 79) 100%) !important;
     border: none !important;
 }
-
 .bl-grd-btn:hover {
     background: linear-gradient(313deg, rgb(28, 93, 107) 0%, rgb(52, 172, 199) 100%) !important;
 }

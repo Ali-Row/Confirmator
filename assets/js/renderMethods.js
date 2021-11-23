@@ -20,6 +20,7 @@ const renderButtons = () => {
 }
 
 const renderStudentButtons = (students) => {
+    $('#studentBtns').empty();
     students.forEach((person, i) => {
         let sessionTime = moment(person.time, "H:mm").format("hh:mm A");
         let studentTitle;
@@ -38,14 +39,9 @@ const renderStudentButtons = (students) => {
         let currentDate = moment(moment().format('L'));
         let studentGraduationDate = moment(person.gradDate); 
 
-        // If auto delete is switched on and the students graduation date has passed then remove all those students.
-        if (isAutoDelete === 'true' && currentDate.isAfter(studentGraduationDate)) {
-            let id = i;
-            let students = JSON.parse(localStorage.getItem('students'));
-            students.splice(id, 1);
-            window.localStorage.setItem('students', JSON.stringify(students));
-        }
-
+        // If auto delete is switched on and the students graduation date has passed then remove all of those students.
+        if (isAutoDelete === 'true' && currentDate.isAfter(studentGraduationDate)) deleteStudent(i);
+        
         // If a graduation date exists check it, if the date has passed then make the buttons red to alert the user.
             if (currentDate.isAfter(studentGraduationDate)) {
                 let hasGraduatedTitle = `${person.name.split(' ')[0]} Graduated`
