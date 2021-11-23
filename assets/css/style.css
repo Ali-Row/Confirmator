@@ -146,8 +146,13 @@ input,
 #studentNameInput::-webkit-input-placeholder,
 #studentEmailInput::-webkit-input-placeholder,
 #studentLinkInput::-webkit-input-placeholder,
-#copyFromRosterInput::-webkit-input-placeholder {
-  /* Chrome/Opera/Safari */
+#copyFromRosterInput::-webkit-input-placeholder,
+#timeInput::-moz-placeholder,
+#studentNameInput::-moz-placeholder,
+#studentEmailInput::-moz-placeholder,
+#studentLinkInput::-moz-placeholder,
+#copyFromRosterInput::-moz-placeholder {
+  /* Chrome/Opera/Safari/Firefox */
   color: white !important;
 }
 .bl-grd-btn {

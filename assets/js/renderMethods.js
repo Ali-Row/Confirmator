@@ -14,8 +14,8 @@ const renderAlert = () => {
 
 const renderButtons = () => {
     $('#studentBtns').empty();
-    let students = JSON.parse(window.localStorage.getItem('students'));
-    const studentsExist = students || '';
+    let students = JSON.parse(window.localStorage.getItem('students')) || [];
+    let studentsExist = students.length > 0;
     studentsExist ? renderStudentButtons(students) : renderPlaceholderButtons();
 }
 
