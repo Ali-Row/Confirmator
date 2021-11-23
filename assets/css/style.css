@@ -1,3 +1,7 @@
+:root {
+    --alert-bg-color: rgb(131, 130, 130) !important;
+}
+
 form,
 h1,
 button,
@@ -17,20 +21,20 @@ input:focus {
   opacity: 1;
 }
 .tooltip-inner {
-  background-color: rgb(131, 130, 130);
+  background-color: var(--alert-bg-color);
   opacity: 1 !important;
 }
 .tooltip.bs-tooltip-right .tooltip-arrow:before {
-  border-right-color: rgb(131, 130, 130) !important;
+  border-right-color: var(--alert-bg-color);
 }
 .tooltip.bs-tooltip-left .tooltip-arrow:before {
-  border-left-color: rgb(131, 130, 130) !important;
+  border-left-color: var(--alert-bg-color);
 }
 .tooltip.bs-tooltip-bottom .tooltip-arrow:before {
-  border-bottom-color: rgb(131, 130, 130) !important;
+  border-bottom-color: var(--alert-bg-color);
 }
 .tooltip.bs-tooltip-top .tooltip-arrow:before {
-  border-top-color: rgb(131, 130, 130) !important;
+  border-top-color: var(--alert-bg-color);
 }
 .logo {
   padding: 30px;
