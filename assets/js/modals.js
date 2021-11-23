@@ -23,6 +23,10 @@ const renderEditModal = (id) => {
             <label for="floatingPassword">Student Email</label>
         </div>
         <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="newGradDate" placeholder="Graduation Date">
+            <label for="floatingPassword">Graduation Date</label>
+        </div>
+        <div class="form-floating mb-2">
             <input type="input" class="form-control" id="newLink" placeholder="Student Link">
             <label for="floatingPassword">Student Link</label>
         </div>
@@ -46,12 +50,14 @@ const renderEditModal = (id) => {
         let newTime = $('#newTime').val();
         let newName = $('#newName').val().trim();
         let newEmail = $('#newEmail').val().trim();
+        let newGradDate = $('#newGradDate').val().trim();
         let newLink = $('#newLink').val().trim();
         let newTimeZone = $('#newTimeZone').val().trim();
 
         person.time = newTime;
         person.name = newName;
         person.email = newEmail;
+        person.gradDate = newGradDate;
         person.link = newLink;
         person.timeZone = newTimeZone;
 
@@ -63,6 +69,7 @@ const renderEditModal = (id) => {
     $('#newName').val(person.name);  
     $('#newEmail').val(person.email);  
     $('#newLink').val(person.link);
+    $('#newGradDate').val(person.gradDate);
     $('#newTimeZone').val(person.timeZone);  
 }
 

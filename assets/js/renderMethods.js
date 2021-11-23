@@ -32,6 +32,21 @@ const renderStudentButtons = (students) => {
         let deleteBtn = $('<button><i class="fas fa-times"></i>');
         let editBtn = $('<button><i class="fas fa-pen"></i>');
         let studentBtn = $(`<button tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" title="${studentTitle}" data-bs-content="${studentSessionTime}">`).text(person.name);
+
+        // If a graduation date exists check it, if the date has passed then make the buttons red to alert the user.
+            let currentDate = moment(moment().format('L'));
+            let studentGraduationDate = moment(person.gradDate); 
+
+            if (currentDate.isAfter(studentGraduationDate)) {
+                let hasGraduatedTitle = `${person.name.split(' ')[0]} Graduated`
+                let hasGraduatedText = "Delete this student?";
+                studentBtn = $(`<button tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" title="${hasGraduatedTitle}" data-bs-content="${hasGraduatedText}">`).text(person.name);
+
+                deleteBtn.addClass('del-graduation-btn');
+                editBtn.addClass('del-graduation-btn');
+                studentBtn.addClass('graduation-btn');
+            }
+        
         
         deleteBtn.addClass('btn btn-danger rounded-0 mb-1 rounded-left delete del-grd-btn shadow');
         editBtn.addClass('btn btn-primary rounded-0 mb-1 edit del-grd-btn bl shadow');

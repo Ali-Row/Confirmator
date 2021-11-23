@@ -2,6 +2,7 @@ const generateConfirmation = (time, name, email, timeZone, link) => {
 
     let studentName = $('#studentNameInput').val().trim();
     let studentEmail = $('#studentEmailInput').val().trim();
+    let graduationDate = moment($('#graduationDateInput').val().trim()).format('L');
     let studentLink = $('#studentLinkInput').val().trim();
     let copyFromRoster = $('#copyFromRosterInput').val().trim();
     let date = moment().add(1,'days').format('dddd, MMMM Do');
@@ -24,12 +25,14 @@ const generateConfirmation = (time, name, email, timeZone, link) => {
     let rosterArr = copyFromRoster.split("\t");
 
         if (rosterArr.length > 1) {
-            studentName = rosterArr[2]
+            graduationDate = rosterArr[1];
+            studentName = rosterArr[2];
             studentEmail = rosterArr[3];
             studentTimeZone = rosterArr[5];
             studentLink = rosterArr[6];
         }
 
+        // If the info isn't filled out, use the info that is passed in via the functions params 
         !sessionTime ? sessionTime = time : sessionTime;   
         !studentName ? studentName = name : studentName;
         !studentEmail ? studentEmail = email : studentEmail;
@@ -48,7 +51,7 @@ const generateConfirmation = (time, name, email, timeZone, link) => {
         AWST ? studentTimeZone = AWST : null;
         Mountain ? studentTimeZone = Mountain : null;
      
-        let studentObj = new Student(sessionTime, studentName, studentEmail, studentTimeZone, studentLink);
+        let studentObj = new Student(sessionTime, studentName, studentEmail, graduationDate, studentTimeZone, studentLink);
 
         // Convert 24h to 12h format, remove or comment out this line if you want to revert to 24h
         sessionTime = moment(sessionTime, "H:mm").format("hh:mm A");

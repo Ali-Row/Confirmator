@@ -12,7 +12,7 @@ $('#generate').on('click', (e) => {
     e.preventDefault();
     generateConfirmation();
     let student = generateConfirmation();
-    save(student.time, student.name, student.email, student.timeZone, student.link);
+    save(student.time, student.name, student.email, student.gradDate, student.timeZone, student.link);
     renderButtons();
 })
     

@@ -67,6 +67,14 @@ input, .alert, .greyBtnBlock {
     background: linear-gradient(313deg, rgb(50, 183, 212) 0%, rgb(56,188,218) 100%) !important;
     border: none !important;
 }
+.graduation-btn {
+    background: linear-gradient(313deg, rgb(129, 33, 33) 0%, rgb(218, 56, 56) 100%) !important;
+    border: none !important;
+}
+.del-graduation-btn {
+    background: linear-gradient(313deg, rgb(212, 50, 50) 0%, rgb(218, 56, 56) 100%) !important;
+    border: none !important;
+}
 .gy-grd-btn {
     background: linear-gradient(313deg, rgb(95, 95, 103) 0%, rgb(77, 77, 79) 100%) !important;
     border: none !important;
@@ -77,6 +85,12 @@ input, .alert, .greyBtnBlock {
 }
 .del-grd-btn:hover {
     background: linear-gradient(313deg, rgb(50, 171, 192) 0%, rgb(47, 160, 185) 100%) !important;
+}
+.graduation-btn:hover {
+    background: linear-gradient(313deg, rgb(107, 28, 28) 0%, rgb(199, 52, 52) 100%) !important;
+}
+.del-graduation-btn:hover {
+    background: linear-gradient(313deg, rgb(192, 50, 50) 0%, rgb(185, 47, 47) 100%) !important;
 }
 .gy-grd-btn:hover {
     background: linear-gradient(313deg, rgb(80, 80, 87) 0%, rgb(67, 67, 70) 100%) !important;

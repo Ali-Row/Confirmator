@@ -1,15 +1,16 @@
 class Student {
-    constructor(time, name, email, timeZone, link) {
+    constructor(time, name, email, gradDate, timeZone, link) {
         this.time = time;
         this.name = name;
         this.email = email;
+        this.gradDate = gradDate;
         this.timeZone = timeZone;
         this.link = link;
     }
 }
 
-const save = (time, name, email, timeZone, link) => {
-    let student = new Student(time, name, email, timeZone, link);
+const save = (time, name, email, gradDate, timeZone, link) => {
+    let student = new Student(time, name, email, gradDate, timeZone, link);
     let studentData = JSON.parse(window.localStorage.getItem('students')) || [];
     studentData.push(student);
 
