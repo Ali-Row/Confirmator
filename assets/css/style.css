@@ -1,289 +1,360 @@
-form, h1, button, footer, .logo, .modal, .font {
-    font-family: 'Open Sans', sans-serif !important;
+form,
+h1,
+button,
+footer,
+.logo,
+.modal,
+.font {
+  font-family: "Open Sans", sans-serif !important;
 }
 hr {
-    border: solid rgba(180, 180, 180, 0.568) 1px;
+  border: solid rgba(180, 180, 180, 0.568) 1px;
 }
 input:focus {
-    box-shadow: 0px 0px 5px 2px rgba(52, 172, 199, 0.726) !important;
+  box-shadow: 0px 0px 5px 2px rgba(52, 172, 199, 0.726) !important;
+}
+.tooltip.show {
+  opacity: 1;
+}
+.tooltip-inner {
+  background-color: rgb(131, 130, 130);
+  opacity: 1 !important;
+}
+.tooltip.bs-tooltip-right .tooltip-arrow:before {
+  border-right-color: rgb(131, 130, 130) !important;
+}
+.tooltip.bs-tooltip-left .tooltip-arrow:before {
+  border-left-color: rgb(131, 130, 130) !important;
+}
+.tooltip.bs-tooltip-bottom .tooltip-arrow:before {
+  border-bottom-color: rgb(131, 130, 130) !important;
+}
+.tooltip.bs-tooltip-top .tooltip-arrow:before {
+  border-top-color: rgb(131, 130, 130) !important;
 }
 .logo {
-    padding: 30px;
+  padding: 30px;
 }
 .trilogy-logo {
-    width: 3rem;
-    margin-bottom: .5rem;
+  width: 3rem;
+  margin-bottom: 0.5rem;
 }
 .trilogy-logo-small {
-    width: 2.1rem;
-    margin-bottom: .5rem;
+  width: 2.1rem;
+  margin-bottom: 0.5rem;
 }
 .auto-delete-students:checked {
-    background-color: rgb(56,188,218) !important;
+  background-color: rgb(56, 188, 218) !important;
 }
-.edit-info-img { 
-    max-width: 12%;
+.edit-info-img {
+  max-width: 12%;
 }
 .sign-in-modal-img {
-    max-width: 10%;
+  max-width: 10%;
 }
 .p-0 {
-    padding: 0% !important;
+  padding: 0% !important;
 }
 .bd {
-    border-color: rgb(48, 49, 53) !important;
-} 
-.generate-form-container {
-    margin-top: .29rem;
-}  
-.saved-students {
-    margin: .4rem;
+  border-color: rgb(48, 49, 53) !important;
 }
-input, .alert, .greyBtnBlock {
-    background-color: rgb(131, 130, 130) !important;
-    color: white !important;
-    border: rgb(131, 130, 130) !important;
+.generate-form-container {
+  margin-top: 0.29rem;
+}
+.saved-students {
+  margin: 0.4rem;
+}
+input,
+.alert,
+.greyBtnBlock {
+  background-color: rgb(131, 130, 130) !important;
+  color: white !important;
+  border: rgb(131, 130, 130) !important;
 }
 .greyBtnBlock {
-   cursor: inherit;
+  cursor: inherit;
 }
 .text-white {
-    text-decoration: none !important;
-    color: white !important;
+  text-decoration: none !important;
+  color: white !important;
 }
 .text-white:hover {
-    color: white !important;
+  color: white !important;
 }
 #timeInput::-webkit-input-placeholder,
 #studentNameInput::-webkit-input-placeholder,
-#studentEmailInput::-webkit-input-placeholder, 
+#studentEmailInput::-webkit-input-placeholder,
 #studentLinkInput::-webkit-input-placeholder,
-#copyFromRosterInput::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: white !important;
+#copyFromRosterInput::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: white !important;
 }
 .bl-grd-btn {
-    background: linear-gradient(313deg, rgb(33, 112, 129) 0%, rgb(56,188,218) 100%) !important;
-    border: none !important;
+  background: linear-gradient(
+    313deg,
+    rgb(33, 112, 129) 0%,
+    rgb(56, 188, 218) 100%
+  ) !important;
+  border: none !important;
 }
 .del-grd-btn {
-    background: linear-gradient(313deg, rgb(50, 183, 212) 0%, rgb(56,188,218) 100%) !important;
-    border: none !important;
+  background: linear-gradient(
+    313deg,
+    rgb(50, 183, 212) 0%,
+    rgb(56, 188, 218) 100%
+  ) !important;
+  border: none !important;
 }
 .graduation-btn {
-    background: linear-gradient(313deg, rgb(129, 33, 33) 0%, rgb(218, 56, 56) 100%) !important;
-    border: none !important;
+  background: linear-gradient(
+    313deg,
+    rgb(129, 33, 33) 0%,
+    rgb(218, 56, 56) 100%
+  ) !important;
+  border: none !important;
 }
 .del-graduation-btn {
-    background: linear-gradient(313deg, rgb(212, 50, 50) 0%, rgb(218, 56, 56) 100%) !important;
-    border: none !important;
+  background: linear-gradient(
+    313deg,
+    rgb(212, 50, 50) 0%,
+    rgb(218, 56, 56) 100%
+  ) !important;
+  border: none !important;
 }
 .gy-grd-btn {
-    background: linear-gradient(313deg, rgb(95, 95, 103) 0%, rgb(77, 77, 79) 100%) !important;
-    border: none !important;
+  background: linear-gradient(
+    313deg,
+    rgb(95, 95, 103) 0%,
+    rgb(77, 77, 79) 100%
+  ) !important;
+  border: none !important;
 }
 .bl-grd-btn:hover {
-    background: linear-gradient(313deg, rgb(28, 93, 107) 0%, rgb(52, 172, 199) 100%) !important;
+  background: linear-gradient(
+    313deg,
+    rgb(28, 93, 107) 0%,
+    rgb(52, 172, 199) 100%
+  ) !important;
 }
 .del-grd-btn:hover {
-    background: linear-gradient(313deg, rgb(50, 171, 192) 0%, rgb(47, 160, 185) 100%) !important;
+  background: linear-gradient(
+    313deg,
+    rgb(50, 171, 192) 0%,
+    rgb(47, 160, 185) 100%
+  ) !important;
 }
 .graduation-btn:hover {
-    background: linear-gradient(313deg, rgb(107, 28, 28) 0%, rgb(199, 52, 52) 100%) !important;
+  background: linear-gradient(
+    313deg,
+    rgb(107, 28, 28) 0%,
+    rgb(199, 52, 52) 100%
+  ) !important;
 }
 .del-graduation-btn:hover {
-    background: linear-gradient(313deg, rgb(192, 50, 50) 0%, rgb(185, 47, 47) 100%) !important;
+  background: linear-gradient(
+    313deg,
+    rgb(192, 50, 50) 0%,
+    rgb(185, 47, 47) 100%
+  ) !important;
 }
 .gy-grd-btn:hover {
-    background: linear-gradient(313deg, rgb(80, 80, 87) 0%, rgb(67, 67, 70) 100%) !important;
+  background: linear-gradient(
+    313deg,
+    rgb(80, 80, 87) 0%,
+    rgb(67, 67, 70) 100%
+  ) !important;
 }
 .mh {
-    max-height: 35px;
-    margin-top: 51px !important;
+  max-height: 35px;
+  margin-top: 51px !important;
 }
 .bl {
-    border-left: solid white 1px !important;
+  border-left: solid white 1px !important;
 }
 .bl-grey {
-    border-left: solid rgb(167, 167, 167) 1px !important;
+  border-left: solid rgb(167, 167, 167) 1px !important;
 }
 .grey-icon {
-    color: rgb(167, 167, 167) !important;
+  color: rgb(167, 167, 167) !important;
 }
-.person, .grey-person {
-    width: 70%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+.person,
+.grey-person {
+  width: 70%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
-.delete, .grey-delete {
-    width: 20%;
+.delete,
+.grey-delete {
+  width: 20%;
 }
 .margin {
-    margin-top: 22px !important;
+  margin-top: 22px !important;
 }
 .rounded-left {
-    border-top-left-radius: 33px !important;
-    border-bottom-left-radius: 33px !important;
+  border-top-left-radius: 33px !important;
+  border-bottom-left-radius: 33px !important;
 }
 .rounded-right {
-    border-top-right-radius: 33px !important;
-    border-bottom-right-radius: 33px !important;
+  border-top-right-radius: 33px !important;
+  border-bottom-right-radius: 33px !important;
 }
 .rounded-pill {
-    border-top-right-radius: 33px !important;
-    border-bottom-right-radius: 33px !important;
-    border-top-left-radius: 33px !important;
-    border-bottom-left-radius: 33px !important;
+  border-top-right-radius: 33px !important;
+  border-bottom-right-radius: 33px !important;
+  border-top-left-radius: 33px !important;
+  border-bottom-left-radius: 33px !important;
 }
 .sm-font {
-    font-size: 14px;
+  font-size: 14px;
 }
 .bg-dark {
-    background: rgb(48, 49, 53) !important;
+  background: rgb(48, 49, 53) !important;
 }
 .rounded-more {
-    border-radius: 20px !important;
+  border-radius: 20px !important;
 }
 .white {
-    font-family: sans-serif !important;
-    background: #ffffff !important;
+  font-family: sans-serif !important;
+  background: #ffffff !important;
 }
 .bold {
-    text-decoration: none !important;
-    font-size: 22px;
+  text-decoration: none !important;
+  font-size: 22px;
 }
 .padding-more {
-    padding: 66px;
+  padding: 66px;
 }
 #confirmation {
-    font-size: 13px;
+  font-size: 13px;
 }
 a {
-    text-decoration: underline !important;
-    color: rgb(46,145,163) !important;
+  text-decoration: underline !important;
+  color: rgb(46, 145, 163) !important;
 }
 a:hover {
-    color: rgb(24, 101, 114) !important;
+  color: rgb(24, 101, 114) !important;
 }
-.help-btn, .help-btn:hover {
-    color: rgb(255, 255, 255) !important;
-    text-decoration: none !important;
+.help-btn,
+.help-btn:hover {
+  color: rgb(255, 255, 255) !important;
+  text-decoration: none !important;
 }
 .pre-footer {
-    background: rgba(56,188,218, 0.39);
-    margin-top: 100px !important;
-    margin: 0% auto;
+  background: rgba(56, 188, 218, 0.39);
+  margin-top: 100px !important;
+  margin: 0% auto;
 }
 .pre-footer-line {
-    background: rgb(255, 255, 255);
-    padding: .01rem;
+  background: rgb(255, 255, 255);
+  padding: 0.01rem;
 }
 .footer-name {
-    text-decoration: none !important;
+  text-decoration: none !important;
 }
 .footer-icon-wrapper {
-    margin-top: 1rem !important;
-    margin: 0% auto;
-    background: rgba(13, 38, 58, 0.164);
-    border-radius: .8rem;
-    transition: all ease-in .18s;
+  margin-top: 1rem !important;
+  margin: 0% auto;
+  background: rgba(13, 38, 58, 0.164);
+  border-radius: 0.8rem;
+  transition: all ease-in 0.18s;
 }
 .footer-icon-wrapper:hover {
-    background: rgb(27, 50, 66);
+  background: rgb(27, 50, 66);
 }
 .i-footer {
-    font-size: 2.2rem;
-    padding-left: .8rem;
-    padding-right: .8rem;
-    transition: all ease-in-out .12s;
+  font-size: 2.2rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  transition: all ease-in-out 0.12s;
 }
 .fa-html5:hover {
-    transform: scale(1.1);
-    color: rgb(228,77,38);
+  transform: scale(1.1);
+  color: rgb(228, 77, 38);
 }
 .fa-css3:hover {
-    transform: scale(1.1);
-    color: rgb(37,75,221);
+  transform: scale(1.1);
+  color: rgb(37, 75, 221);
 }
 .fa-js-square:hover {
-    transform: scale(1.1);
-    color: rgb(209, 185, 28);
+  transform: scale(1.1);
+  color: rgb(209, 185, 28);
 }
 .fa-bootstrap:hover {
-    transform: scale(1.1);
-    color: rgb(143, 66, 231);
+  transform: scale(1.1);
+  color: rgb(143, 66, 231);
 }
 .fa-font-awesome:hover {
-    transform: scale(1.1);
-    color: rgb(51,155,240);
+  transform: scale(1.1);
+  color: rgb(51, 155, 240);
 }
 .fa-stack-overflow:hover {
-    transform: scale(1.1);
-    color: rgb(244,128,36);
+  transform: scale(1.1);
+  color: rgb(244, 128, 36);
 }
 footer {
-    font-size: 20px;
-    background-color: rgba(13, 102, 117, 0.288);
-    margin: 0% auto;
+  font-size: 20px;
+  background-color: rgba(13, 102, 117, 0.288);
+  margin: 0% auto;
 }
 
 @media screen and (max-width: 1330px) {
-    .footer-icon-wrapper {
-        width: 40% !important;
-    }
+  .footer-icon-wrapper {
+    width: 40% !important;
+  }
 }
 @media screen and (max-width: 1199px) {
-    #studentText {
-        margin-top: 40px;
-    }
-    .footer-icon-wrapper {
-        width: 50% !important;
-    }
+  #studentText {
+    margin-top: 40px;
+  }
+  .footer-icon-wrapper {
+    width: 50% !important;
+  }
 }
 @media screen and (max-width: 800px) {
-    .footer-icon-wrapper {
-        width: 65% !important;
-    }
+  .footer-icon-wrapper {
+    width: 65% !important;
+  }
 }
 @media screen and (max-width: 600px) {
-    .login {
-      margin: 0 auto !important;
-    }
-    .nav {
-        justify-content: center !important;
-    }
-    .footer-icon-wrapper {
-        width: 100% !important;
-    }
-    footer {
-        padding: 1.8rem !important;
-    }
+  .login {
+    margin: 0 auto !important;
+  }
+  .nav {
+    justify-content: center !important;
+  }
+  .footer-icon-wrapper {
+    width: 100% !important;
+  }
+  footer {
+    padding: 1.8rem !important;
+  }
 }
 @media screen and (max-width: 446px) {
-    .login {
-        margin-top: -75px !important;
-        margin-bottom: 20px !important;
-    }
-    #subject {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .copy-to-clipboard-btn, .send-confirmation-btn {
-       margin: 0rem auto !important;
-       margin-top: .5rem !important;
-       width: 100% !important;
-    }
-    footer {
-        padding: 1.2rem !important;
-    }
-
+  .login {
+    margin-top: -75px !important;
+    margin-bottom: 20px !important;
+  }
+  #subject {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .copy-to-clipboard-btn,
+  .send-confirmation-btn {
+    margin: 0rem auto !important;
+    margin-top: 0.5rem !important;
+    width: 100% !important;
+  }
+  footer {
+    padding: 1.2rem !important;
+  }
 }
 @media screen and (max-width: 298px) {
-    .footer-icon-wrapper {
-        display: none;
-    }
-    footer {
-        padding: 1.8rem !important;
-    }
+  .footer-icon-wrapper {
+    display: none;
+  }
+  footer {
+    padding: 1.8rem !important;
+  }
 }
