@@ -9,7 +9,7 @@ class Student {
     }
 }
 
-const save = (time, name, email, gradDate, timeZone, link) => {
+const saveStudent = (time, name, email, gradDate, timeZone, link) => {
     let student = new Student(time, name, email, gradDate, timeZone, link);
     let studentData = JSON.parse(window.localStorage.getItem('students')) || [];
     studentData.push(student);

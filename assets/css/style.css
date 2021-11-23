@@ -1,5 +1,42 @@
 :root {
-    --alert-bg-color: rgb(131, 130, 130) !important;
+  --alert-bg-color: rgb(106, 106, 106);
+  --gradient-darker: linear-gradient(
+    313deg,
+    rgb(33, 112, 129) 0%,
+    rgb(56, 188, 218) 100%
+  );
+  --gradient-darker-hover: linear-gradient(
+    313deg,
+    rgb(28, 93, 107) 0%,
+    rgb(52, 172, 199) 100%
+  );
+  --gradient-dark: linear-gradient(
+    313deg,
+    rgb(50, 183, 212) 0%,
+    rgb(56, 188, 218) 100%
+  );
+  --gradient-dark-hover: linear-gradient(
+    313deg,
+    rgb(50, 171, 192) 0%,
+    rgb(47, 160, 185) 100%
+  );
+
+  --has-graduated-darker-hover: linear-gradient(
+    313deg,
+    rgb(107, 28, 28) 0%,
+    rgb(199, 52, 52) 100%
+  );
+  --has-graduated-dark-hover: linear-gradient(
+    313deg,
+    rgb(192, 50, 50) 0%,
+    rgb(185, 47, 47) 100%
+  );
+
+  --input-color: rgb(131, 130, 130);
+  --pre-footer-color: rgba(56, 188, 218, 0.39);
+  --secondary-color: rgb(56, 188, 218);
+  --focus-color: 0px 0px 5px 2px rgba(52, 172, 199, 0.726);
+  --footer-icon-wrapper-color: rgb(27, 50, 66)
 }
 
 form,
@@ -15,7 +52,7 @@ hr {
   border: solid rgba(180, 180, 180, 0.568) 1px;
 }
 input:focus {
-  box-shadow: 0px 0px 5px 2px rgba(52, 172, 199, 0.726) !important;
+  box-shadow: var(--focus-color) !important;
 }
 .tooltip.show {
   opacity: 1;
@@ -48,7 +85,7 @@ input:focus {
   margin-bottom: 0.5rem;
 }
 .auto-delete-students:checked {
-  background-color: rgb(56, 188, 218) !important;
+  background-color: var(--secondary-color) !important;
 }
 .edit-info-img {
   max-width: 12%;
@@ -69,11 +106,15 @@ input:focus {
   margin: 0.4rem;
 }
 input,
-.alert,
 .greyBtnBlock {
-  background-color: rgb(131, 130, 130) !important;
+  background-color: var(--input-color) !important;
   color: white !important;
-  border: rgb(131, 130, 130) !important;
+  border: var(--input-color) !important;
+}
+.alert {
+    background-color: var(--alert-bg-color);
+    border-color: var(--alert-bg-color);
+    color: white;
 }
 .greyBtnBlock {
   cursor: inherit;
@@ -94,19 +135,11 @@ input,
   color: white !important;
 }
 .bl-grd-btn {
-  background: linear-gradient(
-    313deg,
-    rgb(33, 112, 129) 0%,
-    rgb(56, 188, 218) 100%
-  ) !important;
+  background: var(--gradient-darker);
   border: none !important;
 }
 .del-grd-btn {
-  background: linear-gradient(
-    313deg,
-    rgb(50, 183, 212) 0%,
-    rgb(56, 188, 218) 100%
-  ) !important;
+  background: var(--gradient-dark);
   border: none !important;
 }
 .graduation-btn {
@@ -134,32 +167,16 @@ input,
   border: none !important;
 }
 .bl-grd-btn:hover {
-  background: linear-gradient(
-    313deg,
-    rgb(28, 93, 107) 0%,
-    rgb(52, 172, 199) 100%
-  ) !important;
+  background: var(--gradient-darker-hover) !important;
 }
 .del-grd-btn:hover {
-  background: linear-gradient(
-    313deg,
-    rgb(50, 171, 192) 0%,
-    rgb(47, 160, 185) 100%
-  ) !important;
+  background: var(--gradient-dark-hover) !important;
 }
 .graduation-btn:hover {
-  background: linear-gradient(
-    313deg,
-    rgb(107, 28, 28) 0%,
-    rgb(199, 52, 52) 100%
-  ) !important;
+  background: var(--has-graduated-darker-hover) !important;
 }
 .del-graduation-btn:hover {
-  background: linear-gradient(
-    313deg,
-    rgb(192, 50, 50) 0%,
-    rgb(185, 47, 47) 100%
-  ) !important;
+  background: var(--has-graduated-dark-hover) !important;
 }
 .gy-grd-btn:hover {
   background: linear-gradient(
@@ -245,7 +262,7 @@ a:hover {
   text-decoration: none !important;
 }
 .pre-footer {
-  background: rgba(56, 188, 218, 0.39);
+  background: var(--pre-footer-color);
   margin-top: 100px !important;
   margin: 0% auto;
 }
@@ -264,7 +281,7 @@ a:hover {
   transition: all ease-in 0.18s;
 }
 .footer-icon-wrapper:hover {
-  background: rgb(27, 50, 66);
+  background: var(--footer-icon-wrapper-color);
 }
 .i-footer {
   font-size: 2.2rem;
