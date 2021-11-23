@@ -21,6 +21,28 @@ const save = (time, name, email, gradDate, timeZone, link) => {
     window.localStorage.setItem('students', JSON.stringify(studentData));
 }
 
+const getAutoDeleteStudent = () => {
+    let isAutoDelete = localStorage.getItem('auto-delete');
+    let checkbox = $('#autoDeleteStudentCheckbox');
+
+    if (isAutoDelete === 'true') {
+        checkbox.attr('checked', 'true');
+    } else {
+        checkbox.removeAttr('checked');
+    }
+}
+
+const saveAutoDeleteStudent = (e) => {
+    const isChecked = e.target;
+    if (isChecked.getAttribute('checked')) {
+        localStorage.setItem('auto-delete', false);
+        getAutoDeleteStudent();
+    } else {
+        localStorage.setItem('auto-delete', true);
+        getAutoDeleteStudent();
+    }
+}
+
 const setTutorName = (name) => {
     window.localStorage.setItem('tutorName', JSON.stringify(name));
 }
@@ -56,3 +78,4 @@ const copyWithStyle = (element) => {
 renderButtons();
 getTutorName();
 renderModal();
+getAutoDeleteStudent();

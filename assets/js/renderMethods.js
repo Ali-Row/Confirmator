@@ -33,10 +33,20 @@ const renderStudentButtons = (students) => {
         let editBtn = $('<button><i class="fas fa-pen"></i>');
         let studentBtn = $(`<button tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" title="${studentTitle}" data-bs-content="${studentSessionTime}">`).text(person.name);
 
-        // If a graduation date exists check it, if the date has passed then make the buttons red to alert the user.
-            let currentDate = moment(moment().format('L'));
-            let studentGraduationDate = moment(person.gradDate); 
+        let isAutoDelete = localStorage.getItem('auto-delete');
 
+        let currentDate = moment(moment().format('L'));
+        let studentGraduationDate = moment(person.gradDate); 
+
+        // If auto delete is switched on and the students graduation date has passed then remove all those students.
+        if (isAutoDelete === 'true' && currentDate.isAfter(studentGraduationDate)) {
+            let id = i;
+            let students = JSON.parse(localStorage.getItem('students'));
+            students.splice(id, 1);
+            window.localStorage.setItem('students', JSON.stringify(students));
+        }
+
+        // If a graduation date exists check it, if the date has passed then make the buttons red to alert the user.
             if (currentDate.isAfter(studentGraduationDate)) {
                 let hasGraduatedTitle = `${person.name.split(' ')[0]} Graduated`
                 let hasGraduatedText = "Delete this student?";
