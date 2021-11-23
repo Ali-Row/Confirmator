@@ -9,7 +9,7 @@ class Student {
     }
 }
 
-const save = (time, name, email, gradDate, timeZone, link) => {
+const saveStudent = (time, name, email, gradDate, timeZone, link) => {
     let student = new Student(time, name, email, gradDate, timeZone, link);
     let studentData = JSON.parse(window.localStorage.getItem('students')) || [];
     studentData.push(student);
@@ -19,6 +19,35 @@ const save = (time, name, email, gradDate, timeZone, link) => {
         studentData = (studentData.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))); 
     }
     window.localStorage.setItem('students', JSON.stringify(studentData));
+}
+
+const deleteStudent = (id) => {
+    let students = JSON.parse(localStorage.getItem('students'));
+    students.splice(id, 1);
+    window.localStorage.setItem('students', JSON.stringify(students));
+    renderButtons();
+}
+
+const getAutoDeleteStudent = () => {
+    let isAutoDelete = localStorage.getItem('auto-delete');
+    let checkbox = $('#autoDeleteStudentCheckbox');
+
+    if (isAutoDelete === 'true') {
+        checkbox.attr('checked', 'true');
+    } else {
+        checkbox.removeAttr('checked');
+    }
+}
+
+const saveAutoDeleteStudent = (e) => {
+    const isChecked = e.target;
+    if (isChecked.getAttribute('checked')) {
+        localStorage.setItem('auto-delete', false);
+        getAutoDeleteStudent();
+    } else {
+        localStorage.setItem('auto-delete', true);
+        getAutoDeleteStudent();
+    }
 }
 
 const setTutorName = (name) => {
@@ -56,3 +85,4 @@ const copyWithStyle = (element) => {
 renderButtons();
 getTutorName();
 renderModal();
+getAutoDeleteStudent();

@@ -12,7 +12,7 @@ $('#generate').on('click', (e) => {
     e.preventDefault();
     generateConfirmation();
     let student = generateConfirmation();
-    save(student.time, student.name, student.email, student.gradDate, student.timeZone, student.link);
+    saveStudent(student.time, student.name, student.email, student.gradDate, student.timeZone, student.link);
     renderButtons();
 })
     
@@ -22,10 +22,7 @@ $(document).on('click', '.copy-to-clipboard-btn', function() {
 
 $(document).on('click', '.delete', function() {
     let id = parseInt($(this).attr('id'));
-    let students = JSON.parse(localStorage.getItem('students'));
-    students.splice(id, 1);
-    window.localStorage.setItem('students', JSON.stringify(students));
-    renderButtons();
+    deleteStudent(id);
 })
 
 $(document).on('click', '.edit', function() {
