@@ -1,3 +1,4 @@
+/* Begin theme colors */
 :root {
   --alert-bg-color: rgb(106, 106, 106);
   --gradient-darker: linear-gradient(
@@ -21,10 +22,20 @@
     rgb(47, 160, 185) 100%
   );
 
+  --has-graduated-darker: linear-gradient(
+    313deg,
+    rgb(129, 33, 33) 0%,
+    rgb(218, 56, 56) 100%
+  );
   --has-graduated-darker-hover: linear-gradient(
     313deg,
     rgb(107, 28, 28) 0%,
     rgb(199, 52, 52) 100%
+  );
+  --has-graduated-dark: linear-gradient(
+    313deg,
+    rgb(212, 50, 50) 0%,
+    rgb(218, 56, 56) 100%
   );
   --has-graduated-dark-hover: linear-gradient(
     313deg,
@@ -36,8 +47,11 @@
   --pre-footer-color: rgba(56, 188, 218, 0.39);
   --secondary-color: rgb(56, 188, 218);
   --focus-color: 0px 0px 5px 2px rgba(52, 172, 199, 0.726);
-  --footer-icon-wrapper-color: rgb(27, 50, 66)
+  --footer-icon-wrapper-color: rgb(27, 50, 66);
+  --main-font: "Open Sans", sans-serif;
+
 }
+/* End theme colors */
 
 form,
 h1,
@@ -45,8 +59,10 @@ button,
 footer,
 .logo,
 .modal,
-.font {
-  font-family: "Open Sans", sans-serif !important;
+.font,
+.tooltip-inner,
+.alert {
+  font-family: var(--main-font) !important;
 }
 hr {
   border: solid rgba(180, 180, 180, 0.568) 1px;
@@ -143,19 +159,11 @@ input,
   border: none !important;
 }
 .graduation-btn {
-  background: linear-gradient(
-    313deg,
-    rgb(129, 33, 33) 0%,
-    rgb(218, 56, 56) 100%
-  ) !important;
+  background: var(--has-graduated-darker) !important;
   border: none !important;
 }
 .del-graduation-btn {
-  background: linear-gradient(
-    313deg,
-    rgb(212, 50, 50) 0%,
-    rgb(218, 56, 56) 100%
-  ) !important;
+  background: var(--has-graduated-dark) !important;
   border: none !important;
 }
 .gy-grd-btn {
