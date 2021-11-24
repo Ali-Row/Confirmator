@@ -142,16 +142,21 @@ input,
 .text-white:hover {
   color: white !important;
 }
-#timeInput::-webkit-input-placeholder,
-#studentNameInput::-webkit-input-placeholder,
-#studentEmailInput::-webkit-input-placeholder,
-#studentLinkInput::-webkit-input-placeholder,
-#copyFromRosterInput::-webkit-input-placeholder,
+
 #timeInput::-moz-placeholder,
 #studentNameInput::-moz-placeholder,
 #studentEmailInput::-moz-placeholder,
 #studentLinkInput::-moz-placeholder,
-#copyFromRosterInput::-moz-placeholder {
+#copyFromRosterInput::-moz-placeholder
+{
+  color: white !important;
+}
+#timeInput::-webkit-input-placeholder,
+#studentNameInput::-webkit-input-placeholder,
+#studentEmailInput::-webkit-input-placeholder,
+#studentLinkInput::-webkit-input-placeholder,
+#copyFromRosterInput::-webkit-input-placeholder
+{
   /* Chrome/Opera/Safari/Firefox */
   color: white !important;
 }
