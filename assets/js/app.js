@@ -9,16 +9,19 @@ class Student {
     }
 }
 
+const getStudents = () => JSON.parse(window.localStorage.getItem('students')) || [];
+const setStudents = (arr) => localStorage.setItem('students', JSON.stringify(arr));
+
 const saveStudent = (time, name, email, gradDate, timeZone, link) => {
     let student = new Student(time, name, email, gradDate, timeZone, link);
-    let studentData = JSON.parse(window.localStorage.getItem('students')) || [];
+    let studentData = getStudents();
     studentData.push(student);
 
     // Sorts the students from A - Z
     for(i in studentData) {
         studentData = (studentData.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))); 
     }
-    window.localStorage.setItem('students', JSON.stringify(studentData));
+    setStudents(studentData);
 }
 
 const deleteStudent = (id) => {
@@ -50,12 +53,10 @@ const saveAutoDeleteStudent = (e) => {
     }
 }
 
-const setTutorName = (name) => {
-    window.localStorage.setItem('tutorName', JSON.stringify(name));
-}
+const setTutorName = (name) => localStorage.setItem('tutorName', JSON.stringify(name));
 
 const getTutorName = () => {
-    let name = JSON.parse(window.localStorage.getItem('tutorName'));
+    let name = JSON.parse(localStorage.getItem('tutorName'));
     name ? $('#addTutorBtn').text(name) : $('#addTutorBtn').html('<i class="fas fa-user"></i>');
     return name;
 }
@@ -82,7 +83,22 @@ const copyWithStyle = (element) => {
     renderAlert();
 }
 
+const autoDeleteGraduatedStudents = () => {
+    let isAutoDelete = localStorage.getItem('auto-delete');
+    let students = getStudents();
+
+    if (isAutoDelete === 'true') {
+        students = students.filter(person => {
+            let currentDate = moment(moment().format('L'));
+            let studentGraduationDate = moment(person.gradDate);     
+            return !currentDate.isAfter(studentGraduationDate);
+        });
+        setStudents(students);
+    }   
+}
+
 renderButtons();
 getTutorName();
 renderModal();
 getAutoDeleteStudent();
+autoDeleteGraduatedStudents();

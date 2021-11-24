@@ -43,7 +43,7 @@ const renderEditModal = (id) => {
     </div>
     </div>
   `)
-  let students = JSON.parse(localStorage.getItem('students'));
+  let students = getStudents();
   let person = students[id];
 
     $('#saveNewInfo').on('click', function() {
@@ -61,7 +61,7 @@ const renderEditModal = (id) => {
         person.link = newLink;
         person.timeZone = newTimeZone;
 
-        localStorage.setItem('students', JSON.stringify(students)); 
+        setStudents(students);
         window.location.reload();
     })
 
