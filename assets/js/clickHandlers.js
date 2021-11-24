@@ -32,7 +32,7 @@ $(document).on('click', '.edit', function() {
 
 $(document).on('click', '.person', function() {
     let id = $(this).attr('id');
-    let students = JSON.parse(localStorage.getItem('students'));
+    let students = getStudents();
     let person = students[id];
     generateConfirmation(person.time, person.name, person.email, person.timeZone, person.link);
 })
