@@ -65,7 +65,7 @@ const renderEditModal = (id) => {
         window.location.reload();
     })
 
-    $('#newTime').val('');
+    $('#newTime').val(person.time);
     $('#newName').val(person.name);  
     $('#newEmail').val(person.email);  
     $('#newLink').val(person.link);
