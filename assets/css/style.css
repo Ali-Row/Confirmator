@@ -65,6 +65,9 @@ footer,
 .alert {
   font-family: var(--main-font) !important;
 }
+.modal-content, .modal-header, .modal-footer, .dropdown-menu {
+  border-radius: 15px !important;
+}
 hr {
   border: solid rgba(180, 180, 180, 0.568) 1px;
 }
