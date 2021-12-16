@@ -49,6 +49,7 @@
   --focus-color: 0px 0px 5px 2px rgba(52, 172, 199, 0.726);
   --footer-icon-wrapper-color: rgb(27, 50, 66);
   --main-font: "Open Sans", sans-serif;
+  --bg-dark-color: rgb(48, 49, 53);
 
 }
 /* End theme colors */
@@ -69,6 +70,12 @@ hr {
 }
 input:focus {
   box-shadow: var(--focus-color) !important;
+}
+.dropdown-menu {
+  padding: 1rem;
+  background-color: var(--bg-dark-color);
+  width: 100% !important;
+  color: white;
 }
 .tooltip.show {
   opacity: 1;
@@ -248,7 +255,7 @@ input,
   font-size: 14px;
 }
 .bg-dark {
-  background: rgb(48, 49, 53) !important;
+  background: var(--bg-dark-color) !important;
 }
 .rounded-more {
   border-radius: 20px !important;
